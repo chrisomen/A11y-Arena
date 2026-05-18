@@ -67,7 +67,7 @@ h1 em{font-style:normal;color:var(--ac)}
 .mtag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;border-radius:100px;margin-top:.35rem;display:inline-block;border-width:2px;border-style:solid}
 .mc{background:var(--sur2);border:2px solid var(--bd2);border-radius:50%;width:38px;height:38px;cursor:pointer;color:var(--mu);font-size:1.1rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;font-weight:700}
 .mc:hover{color:#fff;border-color:#fff}
-.mb{padding:1.5rem 1.5rem 3.5rem;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.mb{padding:1.5rem 1.5rem 5rem;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .gi{font-size:1rem;line-height:1.85;color:var(--mu);margin-bottom:1.5rem;letter-spacing:.01em}
 .gr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem;flex-wrap:wrap}
 .pi{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.83rem;padding:.36rem .95rem;border-radius:100px;background:var(--sur2);color:#fff;border:2px solid var(--bd2)}
@@ -79,13 +79,13 @@ h1 em{font-style:normal;color:var(--ac)}
 .res.show{display:block}
 .res.pass{background:rgba(46,232,184,.12);border-color:rgba(46,232,184,.5);color:#2ee8b8}
 .res.fail{background:rgba(255,107,107,.12);border-color:rgba(255,107,107,.5);color:#ffaaaa}
-.br{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem}
+.br{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;margin-bottom:.5rem}
 .btn{font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:.62rem 1.35rem;border-radius:100px;border:2px solid var(--bd2);background:transparent;color:var(--mu);cursor:pointer;transition:all .15s}
 .btn:hover{border-color:#fff;color:#fff}
 .btn.p{background:var(--ac);color:#0b0b0e;border-color:var(--ac)}
 .btn.p:hover{box-shadow:0 8px 28px rgba(212,245,78,.35);opacity:.9}
 .qq{background:var(--sur2);border:2px solid var(--bd2);border-left:4px solid var(--or);border-radius:0 var(--r) var(--r) 0;padding:1.15rem 1.35rem;font-size:1rem;color:#fff;line-height:1.85;margin-bottom:1.25rem;letter-spacing:.01em}
-.ops{display:flex;flex-direction:column;gap:.75rem;margin-bottom:.75rem}
+.ops{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1rem}
 .op{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);padding:1rem 1.2rem;text-align:left;font-size:.95rem;cursor:pointer;color:#fff;line-height:1.65;transition:all .15s;width:100%;font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;letter-spacing:.01em;position:relative;display:flex;align-items:flex-start;gap:.9rem}
 .op:hover:not(:disabled){border-color:#fff;background:rgba(255,255,255,.08)}
 .op:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
@@ -160,7 +160,7 @@ footer{text-align:center;padding:3.5rem 2rem;color:var(--mu);font-size:.85rem;bo
 footer a{color:var(--ac);text-decoration:none;font-weight:500}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--sur)}::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
 @media(min-width:601px){.mw{align-items:center;padding:1.5rem}}
-@media(max-width:600px){h1{font-size:3rem}.hstats{gap:2rem}.grid{grid-template-columns:1fr}.mb{padding:1.1rem 1.25rem 1.5rem}.mh{padding:1.1rem 1.25rem 1rem}.mo{border-radius:0;height:100vh;max-height:100vh;width:100%;max-width:100%;position:fixed;top:0;left:0;right:0;bottom:0}}
+@media(max-width:600px){h1{font-size:3rem}.hstats{gap:2rem}.grid{grid-template-columns:1fr}.mb{padding:1rem 1.1rem 6rem}.mh{padding:1.1rem 1.25rem 1rem}.mo{border-radius:0;height:100vh;max-height:100vh;width:100%;max-width:100%;position:fixed;top:0;left:0;right:0;bottom:0}}
 .lb-subtitle{font-size:.78rem;color:var(--mu);font-weight:400;display:block;margin-top:.5rem}
 .lbtable th:nth-child(1){width:40px}.lbtable th:nth-child(2){width:auto}.lbtable th:nth-child(3){width:70px}.lbtable th:nth-child(4){width:80px}
 </style>
@@ -288,9 +288,9 @@ function renderLB(data){
       '<td class="rank">'+(MEDALS[i]||'#'+(i+1))+'</td>'+
       '<td style="font-weight:500;color:#fff">'+e.name+(isMe?' <span style="color:var(--ac);font-size:.7rem">(you)</span>':'')+' </td>'+
       '<td class="score">'+e.xp+' XP</td>'+
-      '<td style="color:var(--mu);font-size:.85rem">'+e.done+' completed</td></tr>';
+      '<td style="color:var(--mu);font-size:.85rem;text-align:center">'+e.done+'</td></tr>';
   });
-  lbc.innerHTML='<table class="lbtable"><thead><tr><th></th><th>Player</th><th>XP</th><th>Games</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  lbc.innerHTML='<table class="lbtable"><thead><tr><th></th><th>Player</th><th>XP</th><th>Done</th></tr></thead><tbody>'+rows+'</tbody></table>';
 }
 
 function submitName(gameId){
