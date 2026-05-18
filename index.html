@@ -114,8 +114,8 @@ h1 em{font-style:normal;color:var(--ac)}
 .csw.right{border-color:var(--te) !important}
 .csw-lbl{font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;font-weight:600;font-size:.9rem;line-height:1;pointer-events:none}
 @keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-.fa{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--rl);padding:1.5rem;margin-bottom:1rem;position:relative;min-height:170px}
-.fb{position:absolute;padding:.55rem 1rem;border-radius:8px;font-size:.85rem;cursor:pointer;font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;background:var(--sur);border:2px solid var(--bd2);color:#fff;transition:background .15s}
+.fa{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--rl);padding:1rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:flex-start;align-content:flex-start}
+.fb{padding:.55rem 1rem;border-radius:8px;font-size:.85rem;cursor:pointer;font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;background:var(--sur);border:2px solid var(--bd2);color:#fff;transition:background .15s}
 .fb:focus{outline:3px solid var(--ac);outline-offset:3px}
 .fb.nof:focus{outline:none !important;box-shadow:none !important}
 .fb.tgt{background:rgba(155,127,255,.2);border:2px solid var(--pu);color:#c8b8ff}
@@ -140,11 +140,11 @@ h1 em{font-style:normal;color:var(--ac)}
 .name-inp{width:100%;max-width:320px;padding:.75rem 1.1rem;background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);color:#fff;font-size:1rem;font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;text-align:center;outline:none;margin-bottom:1rem}
 .name-inp:focus{border-color:var(--ac)}
 .name-inp::placeholder{color:rgba(255,255,255,.4)}
-.lbwrap{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);padding:1.75rem;margin-top:3rem}
-.lbtitle{font-weight:800;font-size:1.15rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem;color:#fff}
-.lbtable{width:100%;border-collapse:collapse}
+.lbwrap{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);padding:1.75rem;margin-top:3rem;overflow:hidden}
+.lbtitle{font-weight:800;font-size:1.15rem;margin-bottom:1.25rem;display:block;color:#fff;line-height:1.4}
+.lbtable{width:100%;border-collapse:collapse;table-layout:fixed}
 .lbtable th{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);padding:.6rem .75rem;text-align:left;border-bottom:2px solid var(--bd2)}
-.lbtable td{font-size:.9rem;padding:.7rem .75rem;border-bottom:1px solid var(--bd);color:#fff}
+.lbtable td{font-size:.9rem;padding:.7rem .75rem;border-bottom:1px solid var(--bd);color:#fff;word-break:break-word;overflow-wrap:anywhere}
 .lbtable tr:last-child td{border-bottom:none}
 .lbtable .rank{font-weight:800;color:var(--ac);width:36px}
 .lbtable .score{font-weight:800;color:var(--ac)}
@@ -160,8 +160,9 @@ footer{text-align:center;padding:3.5rem 2rem;color:var(--mu);font-size:.85rem;bo
 footer a{color:var(--ac);text-decoration:none;font-weight:500}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--sur)}::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
 @media(min-width:601px){.mw{align-items:center;padding:1.5rem}}
-@media(max-width:600px){h1{font-size:3rem}.hstats{gap:2rem}.grid{grid-template-columns:1fr}.mb{padding:1.1rem 1.25rem 1.5rem}.mh{padding:1.1rem 1.25rem 1rem}.mo{border-radius:var(--rl) var(--rl) 0 0;height:92vh;width:100%;max-width:100%;max-height:88vh}}
+@media(max-width:600px){h1{font-size:3rem}.hstats{gap:2rem}.grid{grid-template-columns:1fr}.mb{padding:1.1rem 1.25rem 1.5rem}.mh{padding:1.1rem 1.25rem 1rem}.mo{border-radius:0;height:100vh;max-height:100vh;width:100%;max-width:100%;position:fixed;top:0;left:0;right:0;bottom:0}}
 .lb-subtitle{font-size:.78rem;color:var(--mu);font-weight:400;display:block;margin-top:.2rem}
+.lbtable th:nth-child(1){width:40px}.lbtable th:nth-child(2){width:auto}.lbtable th:nth-child(3){width:70px}.lbtable th:nth-child(4){width:80px}
 </style>
 </head>
 <body>
@@ -656,7 +657,7 @@ var kbdLv,kbdFound;
 function gameKbd(){kbdLv=0;kbdFound=0;setModal('Focus','Keyboard','#2ee8b8','');renderKbd();}
 function renderKbd(){
   var lv=KBDLEVELS[kbdLv];var btns='';
-  lv.els.forEach(function(label,i){var isT=i===lv.targetIdx;var cols=3;var row=Math.floor(i/cols);var col=i%cols;var top=20+row*72;var left=20+col*155;btns+='<button class="fb'+(lv.nof?' nof':'')+(isT?' tgt':'')+'" style="top:'+top+'px;left:'+left+'px" id="kbtn'+i+'">'+label+'</button>';});
+  lv.els.forEach(function(label,i){var isT=i===lv.targetIdx;btns+='<button class="fb'+(lv.nof?' nof':'')+(isT?' tgt':'')+' " id="kbtn'+i+'">'+label+'</button>';});
   document.getElementById('mbody').innerHTML='<p class="gi">'+lv.instr+'</p>'
     +'<div class="kbd-legend"><span class="kbd-key"><kbd>Tab</kbd> Move forward</span><span class="kbd-key"><kbd>Shift+Tab</kbd> Move back</span><span class="kbd-key"><kbd>Enter</kbd> Activate</span><span class="kbd-key"><kbd>Space</kbd> Activate / check</span></div>'
     +'<div class="gr"><div class="pi">Level <span class="v">'+(kbdLv+1)+'</span>/4 \u00b7 Found: <span class="v">'+kbdFound+'</span>/4</div></div>'+progFill(kbdLv,4)+'<div class="fhint">\uD83D\uDCA1 '+lv.hint+'</div><div class="fa" style="height:'+(lv.els.length>3?170:120)+'px">'+btns+'</div><div class="res" id="kres"></div>';
