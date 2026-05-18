@@ -240,15 +240,90 @@ footer a{color:var(--ac);text-decoration:none;font-weight:500}
 <footer>A11y Arena · Based on <a href="https://www.w3.org/WAI/WCAG22/quickref/" target="_blank" rel="noopener">WCAG 2.2</a></footer>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-var currentPlayer='',session={xp:0,streak:0,done:0,completedIds:new Set()},leaderboard=[];
+var currentPlayer='',session={xp:0,streak:0,done:0,completedIds:new Set()};
+var SB_URL='https://fwayotptumtgtfunrmwk.supabase.co/rest/v1/leaderboard';
+var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ3YXlvdHB0dW10Z3RmdW5ybXdrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMjM0MjgsImV4cCI6MjA5NDY5OTQyOH0.tcdmp9362-_xWzwgqW_tUHkuwS789Ttj1njvlnNU0WU';
+var SB_H={'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY};
 function startSession(name){currentPlayer=name;session={xp:0,streak:0,done:0,completedIds:new Set()};updateBannerAndSB();document.getElementById('start-zone').style.display='none';document.getElementById('player-zone').style.display='block';document.querySelectorAll('.gc').forEach(function(c){c.classList.remove('locked');});renderLB();}
-function commitCurrentPlayer(){if(!currentPlayer)return;var ex=leaderboard.filter(function(e){return e.name===currentPlayer;});if(ex.length){ex[0].xp=Math.max(ex[0].xp,session.xp);ex[0].done=Math.max(ex[0].done,session.done);}else{leaderboard.push({name:currentPlayer,xp:session.xp,done:session.done});}leaderboard.sort(function(a,b){return b.xp-a.xp;});renderLB();}
+function commitCurrentPlayer(){
+  if(!currentPlayer)return;
+  // Step 1: check if player exists
+  fetch(SB_URL+'?name=eq.'+encodeURIComponent(currentPlayer)+'&select=id,xp,done',{headers:SB_H})
+    .then(function(r){
+      if(!r.ok)throw new Error('fetch failed: '+r.status);
+      return r.json();
+    })
+    .then(function(rows){
+      if(rows&&rows.length){
+        // Player exists — patch only if new scores are higher
+        var ex=rows[0];
+        var nxp=Math.max(ex.xp||0,session.xp);
+        var ndone=Math.max(ex.done||0,session.done);
+        return fetch(SB_URL+'?id=eq.'+ex.id,{
+          method:'PATCH',
+          headers:Object.assign({'Prefer':'return=representation'},SB_H),
+          body:JSON.stringify({xp:nxp,done:ndone})
+        });
+      } else {
+        // New player — insert
+        return fetch(SB_URL,{
+          method:'POST',
+          headers:Object.assign({'Prefer':'return=representation'},SB_H),
+          body:JSON.stringify({name:currentPlayer,xp:session.xp,done:session.done})
+        });
+      }
+    })
+    .then(function(r){
+      if(r&&!r.ok){
+        return r.text().then(function(t){
+          console.error('Supabase write error:',r.status,t);
+        });
+      }
+      fetchLB();
+    })
+    .catch(function(err){
+      console.error('commitCurrentPlayer error:',err);
+      fetchLB();
+    });
+}
 function addXP(n){session.xp+=n;session.streak++;updateBannerAndSB();commitCurrentPlayer();}
 function markDone(id,idx){if(session.completedIds.has(id))return;session.completedIds.add(id);session.done++;document.getElementById('sdone').textContent=session.done;var cards=document.querySelectorAll('.gc');if(cards[idx])cards[idx].classList.add('done');updateBannerAndSB();commitCurrentPlayer();}
 function updateBannerAndSB(){document.getElementById('sbx').textContent=session.xp+' XP';document.getElementById('sbs').textContent=session.streak+' 🔥';document.getElementById('sxp').textContent=session.xp;document.getElementById('banner-xp').textContent=session.xp;document.getElementById('banner-done').textContent=session.done;document.getElementById('banner-streak').textContent=session.streak;if(currentPlayer)document.getElementById('player-name-display').textContent=currentPlayer;}
 var MEDALS=['🥇','🥈','🥉'];
-function renderLB(){var top=leaderboard.slice(0,10);if(!top.length){document.getElementById('lbcontent').innerHTML='<div class="lb-empty">No scores yet. Complete a game to appear here!</div>';return;}var rows='';top.forEach(function(e,i){var isMe=e.name===currentPlayer;rows+='<tr'+(isMe?' class="me"':'')+'><td class="rank">'+(MEDALS[i]||'#'+(i+1))+'</td><td style="font-weight:500;color:#fff">'+e.name+(isMe?' <span style="color:var(--ac);font-size:.7rem">(you)</span>':'')+'</td><td class="score">'+e.xp+' XP</td><td style="color:var(--mu);font-size:.85rem">'+e.done+' completed</td></tr>';});document.getElementById('lbcontent').innerHTML='<table class="lbtable"><thead><tr><th></th><th>Player</th><th>XP</th><th>Games</th></tr></thead><tbody>'+rows+'</tbody></table>';}
-function resetLB(){leaderboard=[];renderLB();}
+function fetchLB(){
+  document.getElementById('lbcontent').innerHTML='<div class="lb-empty">Loading scores...</div>';
+  fetch(SB_URL+'?select=name,xp,done&order=xp.desc&limit=10',{headers:SB_H})
+    .then(function(r){
+      if(!r.ok)return r.text().then(function(t){throw new Error(r.status+' '+t);});
+      return r.json();
+    })
+    .then(function(data){
+      renderLB(Array.isArray(data)?data:[]);
+    })
+    .catch(function(err){
+      console.error('fetchLB error:',err);
+      document.getElementById('lbcontent').innerHTML='<div class="lb-empty">Could not load scores. Check console for details.</div>';
+    });
+}
+function renderLB(data){
+  if(!data||!data.length){document.getElementById('lbcontent').innerHTML='<div class="lb-empty">No scores yet. Be the first to play!</div>';return;}
+  var rows='';
+  data.forEach(function(e,i){
+    var isMe=e.name===currentPlayer;
+    rows+='<tr'+(isMe?' class="me"':'')+'><td class="rank">'+(MEDALS[i]||'#'+(i+1))+'</td>'
+      +'<td style="font-weight:500;color:#fff">'+e.name+(isMe?' <span style="color:var(--ac);font-size:.7rem">(you)</span>':'')+' </td>'
+      +'<td class="score">'+e.xp+' XP</td>'
+      +'<td style="color:var(--mu);font-size:.85rem">'+e.done+' completed</td></tr>';
+  });
+  document.getElementById('lbcontent').innerHTML='<table class="lbtable"><thead><tr><th></th><th>Player</th><th>XP</th><th>Games</th></tr></thead><tbody>'+rows+'</tbody></table>';
+}
+function resetLB(){
+  if(!confirm('Reset the shared leaderboard for everyone? This cannot be undone.'))return;
+  fetch(SB_URL+'?xp=gte.0',{
+    method:'DELETE',
+    headers:Object.assign({'Prefer':'return=minimal'},SB_H)
+  }).then(function(){fetchLB();}).catch(function(){});
+}
 var CARDDATA=[
   {id:'visual',  icon:'🔍',dif:'Beginner',    tag:'Visual / WCAG', cc:'#ff6b6b',title:'UI Audit',        desc:'A rendered UI element has an accessibility issue. Identify what\'s wrong. 5 rounds.',xp:150},
   {id:'contrast',icon:'🎨',dif:'Beginner',    tag:'Contrast',      cc:'#d4f54e',title:'Lowest Contrast', desc:'6 labelled swatches — pick the one with the lowest contrast ratio. 5 rounds.',xp:120},
@@ -648,6 +723,7 @@ function answerAlt(i,chosen){
 function finishAlt(){if(altScore>=4)winScreen('🖼️',altScore===5?'Alt text ace!':'You passed!',altScore+'/5. Describe meaning not appearance. Context always determines the right alt text.',100,'alt',6,gameAlt);else loseScreen('📸',altScore+'/5 — not quite!','You need 4/5. The context of an image determines what alt text should say.',gameAlt);}
 
 var GAMES={visual:gameVisual,contrast:gameContrast,plain:gamePlain,kbd:gameKbd,caption:gameCaption,heading:gameHeading,alt:gameAlt};
+fetchLB();
 
 // Expose functions called from HTML onclick attributes
 window.showNameEntry = showNameEntry;
@@ -676,6 +752,7 @@ window.gameKbd = gameKbd;
 window.gameCaption = gameCaption;
 window.gameHeading = gameHeading;
 window.gameAlt = gameAlt;
+window.fetchLB = fetchLB;
 }); // end DOMContentLoaded
 </script>
 </body>
