@@ -67,7 +67,7 @@ h1 em{font-style:normal;color:var(--ac)}
 .mtag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;border-radius:100px;margin-top:.35rem;display:inline-block;border-width:2px;border-style:solid}
 .mc{background:var(--sur2);border:2px solid var(--bd2);border-radius:50%;width:38px;height:38px;cursor:pointer;color:var(--mu);font-size:1.1rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;font-weight:700}
 .mc:hover{color:#fff;border-color:#fff}
-.mb{padding:1.5rem 1.5rem 2rem;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.mb{padding:1.5rem 1.5rem 3.5rem;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .gi{font-size:1rem;line-height:1.85;color:var(--mu);margin-bottom:1.5rem;letter-spacing:.01em}
 .gr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem;flex-wrap:wrap}
 .pi{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.83rem;padding:.36rem .95rem;border-radius:100px;background:var(--sur2);color:#fff;border:2px solid var(--bd2)}
@@ -140,11 +140,11 @@ h1 em{font-style:normal;color:var(--ac)}
 .name-inp{width:100%;max-width:320px;padding:.75rem 1.1rem;background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);color:#fff;font-size:1rem;font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;text-align:center;outline:none;margin-bottom:1rem}
 .name-inp:focus{border-color:var(--ac)}
 .name-inp::placeholder{color:rgba(255,255,255,.4)}
-.lbwrap{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);padding:1.75rem;margin-top:3rem;overflow:hidden}
+.lbwrap{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);padding:1.25rem 1rem;margin-top:2rem;overflow:hidden}
 .lbtitle{font-weight:800;font-size:1.15rem;margin-bottom:1.25rem;display:block;color:#fff;line-height:1.4}
 .lbtable{width:100%;border-collapse:collapse;table-layout:fixed}
-.lbtable th{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);padding:.6rem .75rem;text-align:left;border-bottom:2px solid var(--bd2)}
-.lbtable td{font-size:.9rem;padding:.7rem .75rem;border-bottom:1px solid var(--bd);color:#fff;word-break:break-word;overflow-wrap:anywhere}
+.lbtable th{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);padding:.5rem .5rem;text-align:left;border-bottom:2px solid var(--bd2)}
+.lbtable td{font-size:.85rem;padding:.55rem .5rem;border-bottom:1px solid var(--bd);color:#fff;word-break:break-word;overflow-wrap:anywhere}
 .lbtable tr:last-child td{border-bottom:none}
 .lbtable .rank{font-weight:800;color:var(--ac);width:36px}
 .lbtable .score{font-weight:800;color:var(--ac)}
@@ -161,7 +161,7 @@ footer a{color:var(--ac);text-decoration:none;font-weight:500}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--sur)}::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
 @media(min-width:601px){.mw{align-items:center;padding:1.5rem}}
 @media(max-width:600px){h1{font-size:3rem}.hstats{gap:2rem}.grid{grid-template-columns:1fr}.mb{padding:1.1rem 1.25rem 1.5rem}.mh{padding:1.1rem 1.25rem 1rem}.mo{border-radius:0;height:100vh;max-height:100vh;width:100%;max-width:100%;position:fixed;top:0;left:0;right:0;bottom:0}}
-.lb-subtitle{font-size:.78rem;color:var(--mu);font-weight:400;display:block;margin-top:.2rem}
+.lb-subtitle{font-size:.78rem;color:var(--mu);font-weight:400;display:block;margin-top:.5rem}
 .lbtable th:nth-child(1){width:40px}.lbtable th:nth-child(2){width:auto}.lbtable th:nth-child(3){width:70px}.lbtable th:nth-child(4){width:80px}
 </style>
 </head>
@@ -407,11 +407,16 @@ function setModal(title,tag,color,html){
 }
 function winScreen(medal,title,sub,xp,id,idx,fn){
   addXP(xp);markDone(id,idx);
-  document.getElementById('mbody').innerHTML='<div class="end"><span class="em">'+medal+'</span><div class="et">'+title+'</div><div class="es">'+sub+'</div><div class="xpb">+'+xp+' XP earned</div><div class="br" style="justify-content:center"><button class="btn p" onclick="closeGame()">Back to games</button><button class="btn" onclick="('+fn.toString()+')()">Play again</button></div></div>';
+  document.getElementById('mbody').innerHTML='<div class="end"><span class="em">'+medal+'</span><div class="et">'+title+'</div><div class="es">'+sub+'</div><div class="xpb">+'+xp+' XP earned</div><div class="br" style="justify-content:center"><button class="btn p" onclick="closeGame()">Back to games</button><button class="btn" id="_replay">Play again</button></div></div>';
+  var replayBtn=document.getElementById('_replay');
+  if(replayBtn)replayBtn.addEventListener('click',function(){fn();});
 }
 function loseScreen(medal,title,sub,fn){
   if(session.streak>0){session.streak=Math.max(0,session.streak-1);updateBannerAndSB();}
-  document.getElementById('mbody').innerHTML='<div class="end"><span class="em">'+medal+'</span><div class="et">'+title+'</div><div class="es">'+sub+'</div><div class="br" style="justify-content:center"><button class="btn p" onclick="('+fn.toString()+')()">Try again</button><button class="btn" onclick="closeGame()">Back</button></div></div>';
+  var fnName=fn.name||'';
+  document.getElementById('mbody').innerHTML='<div class="end"><span class="em">'+medal+'</span><div class="et">'+title+'</div><div class="es">'+sub+'</div><div class="br" style="justify-content:center"><button class="btn p" id="_retry">Try again</button><button class="btn" onclick="closeGame()">Back</button></div></div>';
+  var retryBtn=document.getElementById('_retry');
+  if(retryBtn)retryBtn.addEventListener('click',function(){fn();});
 }
 function livesHTML(n,total){var s='';for(var i=0;i<total;i++)s+='<span class="li'+(i>=n?' lost':'')+'" aria-hidden="true">\u2764\uFE0F</span>';return s;}
 function progFill(n,total){return '<div class="pg"><div class="pf" style="width:'+(n/total*100)+'%"></div></div>';}
