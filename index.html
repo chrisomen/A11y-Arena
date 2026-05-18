@@ -4,48 +4,41 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A11y Arena — Accessibility Awareness Games</title>
-
-<style>@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
-/* Falls back gracefully to system-ui if offline */
-
-/* Typography: system font stack — works offline on all platforms */
-
-:root{
-  --bg:#0b0b0e;--sur:#1a1a22;--sur2:#252530;
-  --bd:rgba(255,255,255,0.22);--bd2:rgba(255,255,255,0.35);
-  --tx:#ffffff;--mu:#e0dff0;--ac:#d4f54e;
-  --pu:#9b7fff;--te:#2ee8b8;--or:#ffb347;--re:#ff6b6b;
-  --r:12px;--rl:18px;
-}
+<title>A11y Arena &#8212; Accessibility Awareness Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
+:root{--bg:#0b0b0e;--sur:#1a1a22;--sur2:#252530;--bd:rgba(255,255,255,0.22);--bd2:rgba(255,255,255,0.35);--tx:#ffffff;--mu:#e0dff0;--ac:#d4f54e;--pu:#9b7fff;--te:#2ee8b8;--or:#ffb347;--re:#ff6b6b;--r:12px;--rl:18px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;font-size:18px;line-height:1.6}
+body{font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;font-size:18px;line-height:1.85;letter-spacing:.01em}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.5rem;position:relative;overflow:hidden}
 .glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(155,127,255,.15) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-.ey{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.ey{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
 .ey::before,.ey::after{content:'';flex:1;max-width:44px;height:1px;background:var(--ac);opacity:.7}
-h1{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:clamp(3rem,9vw,6.5rem);font-weight:800;line-height:.92;letter-spacing:-.03em;margin-bottom:1.5rem;color:#fff}
+h1{font-size:clamp(3rem,9vw,6.5rem);font-weight:800;line-height:.92;letter-spacing:-.03em;margin-bottom:1.5rem;color:#fff}
 h1 em{font-style:normal;color:var(--ac)}
 .sub{font-size:1.1rem;color:var(--mu);max-width:520px;line-height:1.75;margin-bottom:3rem}
-.cta{display:inline-flex;align-items:center;gap:.75rem;background:var(--ac);color:#0b0b0e;font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-weight:800;font-size:.92rem;letter-spacing:.06em;text-transform:uppercase;padding:1rem 2.25rem;border-radius:100px;cursor:pointer;border:none;transition:transform .15s,box-shadow .15s;text-decoration:none}
+.cta{display:inline-flex;align-items:center;gap:.75rem;background:var(--ac);color:#0b0b0e;font-weight:800;font-size:.92rem;letter-spacing:.06em;text-transform:uppercase;padding:1rem 2.25rem;border-radius:100px;cursor:pointer;border:none;transition:transform .15s,box-shadow .15s;text-decoration:none}
 .cta:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(212,245,78,.4)}
 .hstats{display:flex;gap:3.5rem;margin-top:4rem;padding-top:3rem;border-top:2px solid var(--bd)}
-.sn{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:2.2rem;font-weight:800;color:#fff}
+.sn{font-size:2.2rem;font-weight:800;color:#fff}
 .sl{font-size:.78rem;color:var(--mu);text-transform:uppercase;letter-spacing:.12em;margin-top:.2rem}
-.sb{position:fixed;top:1.25rem;right:1.25rem;z-index:400;background:var(--sur);border:2px solid var(--bd2);border-radius:100px;padding:.5rem 1.25rem;display:flex;align-items:center;gap:.75rem;font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:.82rem;font-weight:700;color:#fff}
-.sb .xp{color:var(--ac)}.sb .st{color:var(--or)}
+.sb{display:none}
 .sec{padding:5rem 2rem;max-width:1120px;margin:0 auto}
-.sece{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:.6rem}
-.sect{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:.75rem;line-height:1.1;color:#fff}
-.secd{color:var(--mu);font-size:1rem;line-height:1.75;max-width:540px;margin-bottom:3rem}
+.sece{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:.6rem}
+.sect{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:.75rem;line-height:1.1;color:#fff}
+.secd{color:var(--mu);font-size:1rem;line-height:1.75;max-width:540px;margin-bottom:3rem;letter-spacing:.01em}
 .player-banner{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);padding:.85rem 1.25rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.player-name{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:1rem;font-weight:800;color:#fff}
+.player-name{font-weight:800;font-size:1rem;color:#fff}
 .player-label{font-size:.8rem;color:var(--mu);margin-bottom:.15rem}
 .player-stats{display:flex;gap:1.5rem}
-.player-stat .val{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:1.2rem;font-weight:800;color:var(--ac)}
+.player-stat .val{font-weight:800;font-size:1.2rem;color:var(--ac)}
 .player-stat .lbl{font-size:.7rem;color:var(--mu);text-transform:uppercase;letter-spacing:.08em}
-.switch-btn{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:.75rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:.55rem 1.1rem;border-radius:100px;border:2px solid var(--re);color:var(--re);background:transparent;cursor:pointer;transition:all .15s;white-space:nowrap}
+.switch-btn{font-weight:800;font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;padding:.55rem 1.1rem;border-radius:100px;border:2px solid var(--re);color:var(--re);background:transparent;cursor:pointer;transition:all .15s;white-space:nowrap}
 .switch-btn:hover{background:var(--re);color:#0b0b0e}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
 .gc{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);padding:1.85rem;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative;overflow:hidden}
@@ -57,27 +50,27 @@ h1 em{font-style:normal;color:var(--ac)}
 .ci{font-size:2.2rem;line-height:1}
 .dif{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:100px;background:rgba(255,255,255,.1);color:var(--mu);border:1px solid var(--bd)}
 .tag{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;border:2px solid var(--cc,var(--pu));color:var(--cc,var(--pu));display:inline-block;margin-bottom:.75rem}
-.cn{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:1.22rem;font-weight:800;margin-bottom:.5rem;color:#fff}
+.cn{font-weight:800;font-size:1.22rem;margin-bottom:.5rem;color:#fff}
 .cd{color:var(--mu);font-size:.95rem;line-height:1.75;margin-bottom:1.5rem;letter-spacing:.01em}
 .cm{display:flex;align-items:center;justify-content:space-between}
-.pb{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:.76rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:.6rem 1.3rem;border-radius:100px;border:2px solid var(--cc,var(--pu));color:#0b0b0e;background:var(--cc,var(--pu));cursor:pointer;transition:opacity .15s}
+.pb{font-weight:800;font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;padding:.6rem 1.3rem;border-radius:100px;border:2px solid var(--cc,var(--pu));color:#0b0b0e;background:var(--cc,var(--pu));cursor:pointer;transition:opacity .15s}
 .pb:hover{opacity:.85}
 .gc.locked .pb{background:rgba(255,255,255,.15);border-color:var(--bd2);color:var(--mu);cursor:not-allowed}
 .cx{font-size:.75rem;color:var(--mu)}.cx span{color:var(--ac);font-weight:700}
-.ck{position:absolute;top:1rem;left:1rem;width:28px;height:28px;border-radius:50%;background:var(--te);display:none;align-items:center;justify-content:center;font-size:.75rem;color:#0b0b0e;font-weight:900;border:2px solid #0b0b0e}
+.ck{position:absolute;top:1rem;left:1rem;width:28px;height:28px;border-radius:50%;background:var(--te);display:none;align-items:center;justify-content:center;font-size:.85rem;color:#0b0b0e;font-weight:900;border:2px solid #0b0b0e}
 .gc.done .ck{display:flex}.gc.done{border-color:rgba(46,232,184,.5)}
-.mw{position:fixed;inset:0;background:rgba(11,11,14,.95);backdrop-filter:blur(10px);z-index:300;display:none;align-items:center;justify-content:center;padding:1.5rem}
+.mw{position:fixed;inset:0;background:rgba(11,11,14,.95);backdrop-filter:blur(10px);z-index:300;display:none;align-items:flex-end;justify-content:center;padding:0}
 .mw.open{display:flex}
-.mo{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);width:100%;max-width:740px;max-height:90vh;overflow-y:auto}
-.mh{padding:1.75rem 2rem 1.25rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;border-bottom:2px solid var(--bd2)}
-.mt{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-.01em}
+.mo{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);width:100%;max-width:740px;height:90vh;display:flex;flex-direction:column;overflow:hidden}
+.mh{padding:1.75rem 2rem 1.25rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;border-bottom:2px solid var(--bd2);flex-shrink:0}
+.mt{font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-.01em}
 .mtag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;border-radius:100px;margin-top:.35rem;display:inline-block;border-width:2px;border-style:solid}
 .mc{background:var(--sur2);border:2px solid var(--bd2);border-radius:50%;width:38px;height:38px;cursor:pointer;color:var(--mu);font-size:1.1rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;font-weight:700}
 .mc:hover{color:#fff;border-color:#fff}
-.mb{padding:2rem 2.25rem 2.25rem}
+.mb{padding:2rem 2.25rem 2.25rem;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .gi{font-size:1rem;line-height:1.85;color:var(--mu);margin-bottom:1.5rem;letter-spacing:.01em}
 .gr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem;flex-wrap:wrap}
-.pi{display:inline-flex;align-items:center;gap:.4rem;font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:.83rem;font-weight:700;padding:.36rem .95rem;border-radius:100px;background:var(--sur2);color:#fff;border:2px solid var(--bd2)}
+.pi{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.83rem;padding:.36rem .95rem;border-radius:100px;background:var(--sur2);color:#fff;border:2px solid var(--bd2)}
 .pi .v{color:var(--ac)}
 .lv{display:flex;gap:.3rem}.li{font-size:1rem;transition:filter .2s,opacity .2s}.li.lost{filter:grayscale(1);opacity:.3}
 .pg{height:5px;background:var(--sur2);border-radius:3px;margin-bottom:1.4rem;overflow:hidden;border:1px solid var(--bd)}
@@ -87,83 +80,18 @@ h1 em{font-style:normal;color:var(--ac)}
 .res.pass{background:rgba(46,232,184,.12);border-color:rgba(46,232,184,.5);color:#2ee8b8}
 .res.fail{background:rgba(255,107,107,.12);border-color:rgba(255,107,107,.5);color:#ffaaaa}
 .br{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem}
-.btn{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.62rem 1.35rem;border-radius:100px;border:2px solid var(--bd2);background:transparent;color:var(--mu);cursor:pointer;transition:all .15s}
+.btn{font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:.62rem 1.35rem;border-radius:100px;border:2px solid var(--bd2);background:transparent;color:var(--mu);cursor:pointer;transition:all .15s}
 .btn:hover{border-color:#fff;color:#fff}
 .btn.p{background:var(--ac);color:#0b0b0e;border-color:var(--ac)}
 .btn.p:hover{box-shadow:0 8px 28px rgba(212,245,78,.35);opacity:.9}
 .qq{background:var(--sur2);border:2px solid var(--bd2);border-left:4px solid var(--or);border-radius:0 var(--r) var(--r) 0;padding:1.15rem 1.35rem;font-size:1rem;color:#fff;line-height:1.85;margin-bottom:1.25rem;letter-spacing:.01em}
 .ops{display:flex;flex-direction:column;gap:.75rem;margin-bottom:.75rem}
-.op{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);padding:.88rem 1.05rem;text-align:left;font-size:.93rem;cursor:pointer;color:#fff;line-height:1.5;transition:all .15s;width:100%;font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;background:rgba(255,255,255,.08)}
+.op{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);padding:1rem 1.2rem;text-align:left;font-size:.95rem;cursor:pointer;color:#fff;line-height:1.65;transition:all .15s;width:100%;font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;letter-spacing:.01em;position:relative;display:flex;align-items:flex-start;gap:.9rem}
+.op:hover:not(:disabled){border-color:#fff;background:rgba(255,255,255,.08)}
 .op:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
 .op.ok{border-color:var(--te);background:rgba(46,232,184,.12);color:var(--te)}
 .op.no{border-color:var(--re);background:rgba(255,107,107,.1);color:#ffaaaa}
 .op:disabled{cursor:default}
-.end{text-align:center;padding:1.75rem 0 .75rem}
-.em{font-size:4.5rem;margin-bottom:1rem;display:block;animation:pop .4s cubic-bezier(.34,1.56,.64,1)}
-@keyframes pop{from{transform:scale(0) rotate(-10deg)}to{transform:scale(1) rotate(0)}}
-.et{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:.5rem;color:#fff}
-.es{color:var(--mu);font-size:.98rem;line-height:1.7;max-width:380px;margin:0 auto 1.5rem}
-.xpb{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,245,78,.15);border:2px solid rgba(212,245,78,.4);border-radius:100px;padding:.5rem 1.25rem;font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:.9rem;font-weight:700;color:var(--ac);margin-bottom:1.75rem}
-.cswgrid{display:flex;flex-direction:row;flex-wrap:wrap;gap:14px;margin-bottom:1.25rem}
-.csw{border-radius:var(--r);padding:1rem 1.25rem;cursor:pointer;text-align:center;border:2px solid var(--bd2);transition:transform .12s,border-color .15s;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
-.csw:hover{transform:scale(1.03);border-color:#fff}
-.csw:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
-.csw.wrong{border-color:var(--re) !important;animation:shk .3s}
-.csw.right{border-color:var(--te) !important}
-.csw-lbl{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-weight:600;font-size:.88rem;line-height:1.35;pointer-events:none}
-@keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-.fa{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--rl);padding:1.5rem;margin-bottom:1rem;position:relative;min-height:170px}
-.fb{position:absolute;padding:.55rem 1rem;border-radius:8px;font-size:.85rem;cursor:pointer;font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;background:var(--sur);border:2px solid var(--bd2);color:#fff;transition:background .15s}
-.fb:focus{outline:3px solid var(--ac);outline-offset:3px}
-.fb.nof:focus{outline:none !important;box-shadow:none !important}
-.fb.tgt{background:rgba(155,127,255,.2);border:2px solid var(--pu);color:#c8b8ff}
-.fhint{font-size:.75rem;color:var(--mu);line-height:1.6;padding:.75rem 1rem;background:var(--sur2);border-radius:var(--r);border:2px solid var(--bd2);margin-bottom:.85rem}
-.ho{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);padding:1.1rem 1.25rem;cursor:pointer;transition:all .15s;margin-bottom:.6rem;display:flex;align-items:flex-start;gap:.9rem;width:100%;text-align:left;font-family:inherit;font-size:inherit;color:inherit}
-.ho:hover:not(.jd){border-color:#fff;background:rgba(255,255,255,.06)}
-.ho:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
-.ho.jd{cursor:default}
-.ho.ok{border-color:var(--te);background:rgba(46,232,184,.08)}
-.ho.no{border-color:var(--re);background:rgba(255,107,107,.07)}
-.hl{font-family:monospace;font-size:.85rem;line-height:1.9}
-.h1c{color:#d4f54e;font-weight:700}.h2c{color:#9b7fff;font-weight:700}.h3c{color:#2ee8b8;font-weight:700}.h4c{color:#ffb347;font-weight:700}
-.ui-demo{background:var(--bg);border:2px solid var(--bd2);border-radius:var(--r);padding:1.35rem;margin-bottom:1.1rem}
-.fv{background:linear-gradient(135deg,#12122a,#0f1a2e);border-radius:var(--r);aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:.85rem;border:2px solid var(--bd2)}
-.fvi{color:rgba(255,255,255,.2);font-size:2.5rem}
-.cb{background:rgba(0,0,0,.8);border-radius:6px;padding:.45rem .9rem;font-size:.75rem;color:#fff;position:absolute;bottom:.85rem;left:50%;transform:translateX(-50%);white-space:nowrap;border:1px solid rgba(255,255,255,.2)}
-.sci{font-size:.88rem;color:var(--mu);line-height:1.6;margin-bottom:1.1rem;padding:.85rem 1rem;background:var(--sur2);border-radius:var(--r);border:2px solid var(--bd2)}
-.sci strong{color:#fff}
-.ab{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);padding:1.5rem;text-align:center;margin-bottom:1rem}
-.ae{font-size:3.8rem;display:block;margin-bottom:.65rem}
-.ad{font-size:.88rem;color:var(--mu);line-height:1.6}
-.ac2{font-size:.8rem;color:var(--mu);margin-top:.35rem;font-style:italic}
-.name-screen{text-align:center;padding:2rem 1rem}
-.name-screen h2{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:.5rem;color:#fff}
-.name-screen p{color:var(--mu);margin-bottom:1.75rem;font-size:.95rem;line-height:1.7}
-.name-inp{width:100%;max-width:320px;padding:.75rem 1.1rem;background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);color:#fff;font-size:1rem;font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;text-align:center;outline:none;margin-bottom:1rem}
-.name-inp:focus{border-color:var(--ac)}
-.name-inp::placeholder{color:rgba(255,255,255,.4)}
-.lbwrap{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);padding:1.75rem;margin-top:3rem}
-.lbtitle{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:1.15rem;font-weight:800;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem;color:#fff}
-.lbtable{width:100%;border-collapse:collapse}
-.lbtable th{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);padding:.6rem .75rem;text-align:left;border-bottom:2px solid var(--bd2)}
-.lbtable td{font-size:.9rem;padding:.7rem .75rem;border-bottom:1px solid var(--bd);color:#fff}
-.lbtable tr:last-child td{border-bottom:none}
-.lbtable .rank{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-weight:800;color:var(--ac);width:36px}
-.lbtable .score{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-weight:800;color:var(--ac)}
-.lbtable tr.me td{background:rgba(212,245,78,.07);border-left:3px solid var(--ac)}
-.lb-empty{color:var(--mu);font-size:.9rem;padding:1.25rem;text-align:center;border:2px dashed var(--bd2);border-radius:var(--r)}
-.lbreset{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.4rem 1rem;border-radius:100px;border:2px solid var(--bd2);background:transparent;color:var(--mu);cursor:pointer;transition:all .15s;margin-top:1rem;display:inline-block}
-.lbreset:hover{color:#fff;border-color:#fff}
-.start-cta{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem;background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--rl);text-align:center;margin-bottom:2rem}
-.start-cta p{color:var(--mu);font-size:.95rem;max-width:440px}
-.start-cta h3{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:1.2rem;font-weight:800;color:#fff}
-footer{text-align:center;padding:3.5rem 2rem;color:var(--mu);font-size:.85rem;border-top:2px solid var(--bd2);line-height:2}
-footer a{color:var(--ac);text-decoration:none;font-weight:500}
-::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--sur)}::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
-@media(max-width:600px){h1{font-size:3rem}.hstats{gap:2rem}.grid{grid-template-columns:1fr}.mb,.mh{padding:1.25rem}}
-
-/* Radio button options */
-.op{position:relative;display:flex;align-items:flex-start;gap:.9rem}
 .op-radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--bd2);background:transparent;flex-shrink:0;margin-top:.2rem;transition:all .15s;display:flex;align-items:center;justify-content:center}
 .op-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:transparent;transition:background .15s}
 .op:hover:not(:disabled) .op-radio{border-color:#fff}
@@ -172,30 +100,76 @@ footer a{color:var(--ac);text-decoration:none;font-weight:500}
 .op.no .op-radio{border-color:var(--re);background:var(--re)}
 .op.no .op-radio::after{background:#0b0b0e}
 .op-text{flex:1;line-height:1.65}
-/* Caption scene card */
-.scene-card{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);overflow:hidden;margin-bottom:1.25rem}
-.scene-card-header{background:rgba(155,127,255,.15);border-bottom:2px solid var(--bd2);padding:.65rem 1.1rem;display:flex;align-items:center;gap:.5rem}
-.scene-card-header span{font-family: 'Plus Jakarta Sans', system-ui, Arial, sans-serif;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--pu)}
-.scene-card-body{padding:1rem 1.1rem}
-.scene-row{display:flex;gap:.75rem;align-items:baseline;margin-bottom:.5rem}
-.scene-row:last-child{margin-bottom:0}
-.scene-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);min-width:60px;flex-shrink:0;padding-top:.1rem}
-.scene-value{font-size:.93rem;color:#fff;line-height:1.65}
-/* Keyboard instruction box */
+.end{text-align:center;padding:1.75rem 0 .75rem}
+.em{font-size:4.5rem;margin-bottom:1rem;display:block;animation:pop .4s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{from{transform:scale(0) rotate(-10deg)}to{transform:scale(1) rotate(0)}}
+.et{font-weight:800;font-size:1.8rem;margin-bottom:.5rem;color:#fff}
+.es{color:var(--mu);font-size:.98rem;line-height:1.7;max-width:380px;margin:0 auto 1.5rem}
+.xpb{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,245,78,.15);border:2px solid rgba(212,245,78,.4);border-radius:100px;padding:.5rem 1.25rem;font-weight:700;font-size:.9rem;color:var(--ac);margin-bottom:1.75rem}
+.cswgrid{display:flex;flex-direction:row;flex-wrap:wrap;gap:14px;margin-bottom:1.25rem}
+.csw{border-radius:var(--r);padding:1rem 1.25rem;cursor:pointer;text-align:center;border:2px solid var(--bd2);transition:transform .12s,border-color .15s;font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
+.csw:hover{transform:scale(1.02);border-color:#fff}
+.csw:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.csw.wrong{border-color:var(--re) !important;animation:shk .3s}
+.csw.right{border-color:var(--te) !important}
+.csw-lbl{font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;font-weight:600;font-size:.9rem;line-height:1;pointer-events:none}
+@keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.fa{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--rl);padding:1.5rem;margin-bottom:1rem;position:relative;min-height:170px}
+.fb{position:absolute;padding:.55rem 1rem;border-radius:8px;font-size:.85rem;cursor:pointer;font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;background:var(--sur);border:2px solid var(--bd2);color:#fff;transition:background .15s}
+.fb:focus{outline:3px solid var(--ac);outline-offset:3px}
+.fb.nof:focus{outline:none !important;box-shadow:none !important}
+.fb.tgt{background:rgba(155,127,255,.2);border:2px solid var(--pu);color:#c8b8ff}
+.fhint{font-size:.85rem;color:var(--mu);line-height:1.6;padding:.75rem 1rem;background:var(--sur2);border-radius:var(--r);border:2px solid var(--bd2);margin-bottom:.85rem}
+.ho{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);padding:1.1rem 1.25rem;cursor:pointer;transition:all .15s;margin-bottom:.6rem;display:flex;align-items:flex-start;gap:.9rem;width:100%;text-align:left;font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;font-size:inherit;color:inherit}
+.ho:hover:not(.jd){border-color:#fff;background:rgba(255,255,255,.06)}
+.ho:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.ho.jd{cursor:default}
+.ho.ok{border-color:var(--te);background:rgba(46,232,184,.08)}
+.ho.no{border-color:var(--re);background:rgba(255,107,107,.07)}
+.hl{font-family:monospace;font-size:.85rem;line-height:1.9}
+.h1c{color:#d4f54e;font-weight:700}.h2c{color:#9b7fff;font-weight:700}.h3c{color:#2ee8b8;font-weight:700}.h4c{color:#ffb347;font-weight:700}
+.ui-demo{background:var(--bg);border:2px solid var(--bd2);border-radius:var(--r);padding:1.35rem;margin-bottom:1.1rem}
+.fv{background:linear-gradient(135deg,#12122a,#0f1a2e);border-radius:var(--r);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:1.25rem 1.35rem;min-height:140px;margin-bottom:.85rem;border:2px solid var(--bd2)}
+.ab{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);padding:1.5rem;text-align:center;margin-bottom:1rem}
+.ae{font-size:3.8rem;display:block;margin-bottom:.65rem}
+.ad{font-size:.88rem;color:var(--mu);line-height:1.6}
+.ac2{font-size:.8rem;color:var(--mu);margin-top:.35rem;font-style:italic}
+.name-screen{text-align:center;padding:2rem 1rem}
+.name-screen h2{font-weight:800;font-size:1.6rem;margin-bottom:.5rem;color:#fff}
+.name-screen p{color:var(--mu);margin-bottom:1.75rem;font-size:.95rem;line-height:1.7}
+.name-inp{width:100%;max-width:320px;padding:.75rem 1.1rem;background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);color:#fff;font-size:1rem;font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;text-align:center;outline:none;margin-bottom:1rem}
+.name-inp:focus{border-color:var(--ac)}
+.name-inp::placeholder{color:rgba(255,255,255,.4)}
+.lbwrap{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);padding:1.75rem;margin-top:3rem}
+.lbtitle{font-weight:800;font-size:1.15rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem;color:#fff}
+.lbtable{width:100%;border-collapse:collapse}
+.lbtable th{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);padding:.6rem .75rem;text-align:left;border-bottom:2px solid var(--bd2)}
+.lbtable td{font-size:.9rem;padding:.7rem .75rem;border-bottom:1px solid var(--bd);color:#fff}
+.lbtable tr:last-child td{border-bottom:none}
+.lbtable .rank{font-weight:800;color:var(--ac);width:36px}
+.lbtable .score{font-weight:800;color:var(--ac)}
+.lbtable tr.me td{background:rgba(212,245,78,.07);border-left:3px solid var(--ac)}
+.lb-empty{color:var(--mu);font-size:.9rem;padding:1.25rem;text-align:center;border:2px dashed var(--bd2);border-radius:var(--r)}
+.start-cta{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:2rem;background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--rl);text-align:center;margin-bottom:2rem}
+.start-cta p{color:var(--mu);font-size:.95rem;max-width:440px}
+.start-cta h3{font-weight:800;font-size:1.2rem;color:#fff}
 .kbd-legend{background:var(--sur2);border:2px solid var(--bd2);border-radius:var(--r);padding:.85rem 1.1rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:.65rem .85rem}
 .kbd-key{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;color:var(--mu)}
 .kbd-key kbd{background:var(--sur);border:1.5px solid var(--bd2);border-bottom-width:3px;border-radius:6px;padding:.2rem .55rem;font-family:monospace;font-size:.78rem;color:#fff;line-height:1.4}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+footer{text-align:center;padding:3.5rem 2rem;color:var(--mu);font-size:.85rem;border-top:2px solid var(--bd2);line-height:2}
+footer a{color:var(--ac);text-decoration:none;font-weight:500}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--sur)}::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
+@media(min-width:601px){.mw{align-items:center;padding:1.5rem}}
+@media(max-width:600px){h1{font-size:3rem}.hstats{gap:2rem}.grid{grid-template-columns:1fr}.mb{padding:1.1rem 1.25rem 1.5rem}.mh{padding:1.1rem 1.25rem 1rem}.mo{border-radius:var(--rl) var(--rl) 0 0;height:92vh;width:100%;max-width:100%}}
 </style>
 </head>
 <body>
-<div class="sb"><span aria-hidden="true">🎮</span><span class="xp" id="sbx">0 XP</span><span>·</span><span class="st" id="sbs">0 🔥</span></div>
 <section class="hero">
-  <div class="glow"></div>
+  <div class="glow" aria-hidden="true"></div>
   <p class="ey">Accessibility awareness</p>
   <h1><span aria-hidden="true">A11y<br><em>Arena</em></span><span class="sr-only">A11y Arena</span></h1>
   <p class="sub">Seven interactive challenges based on WCAG 2.2. Earn XP, climb the leaderboard, and learn what makes digital products truly accessible.</p>
-  <a class="cta" href="#games">Start playing <span aria-hidden="true">→</span></a>
+  <a class="cta" href="#games">Start playing <span aria-hidden="true">&#8594;</span></a>
   <div class="hstats">
     <div><div class="sn">7</div><div class="sl">Games</div></div>
     <div><div class="sn" id="sdone">0</div><div class="sl">Completed</div></div>
@@ -205,237 +179,295 @@ footer a{color:var(--ac);text-decoration:none;font-weight:500}
 <section class="sec" id="games">
   <p class="sece">The games</p>
   <h2 class="sect">Pick your challenge</h2>
-  <p class="secd">Five questions per game. Based on WCAG 2.2 — focused on visual and keyboard accessibility.</p>
+  <p class="secd">Five questions per game. Based on WCAG 2.2 &#8212; focused on visual and keyboard accessibility.</p>
   <div id="start-zone">
     <div class="start-cta">
-      <h3>👋 Who's playing?</h3>
-      <p>Enter your name to unlock the games and start earning XP. Your score will appear on the leaderboard.</p>
-      <button class="cta" onclick="showNameEntry(null)" style="font-size:.85rem;padding:.85rem 2rem">Enter name to start playing <span aria-hidden="true">→</span></button>
+      <h3>&#128075; Who's playing?</h3>
+      <p>Enter your name to unlock the games and start earning XP. Your score will appear on the shared leaderboard.</p>
+      <button class="cta" onclick="showNameEntry(null)" style="font-size:.85rem;padding:.85rem 2rem">Enter name to start playing <span aria-hidden="true">&#8594;</span></button>
     </div>
   </div>
   <div id="player-zone" style="display:none">
     <div class="player-banner">
-      <div><div class="player-label">Now playing</div><div class="player-name" id="player-name-display">—</div></div>
+      <div><div class="player-label">Now playing</div><div class="player-name" id="player-name-display">&#8212;</div></div>
       <div class="player-stats">
         <div class="player-stat"><div class="val" id="banner-xp">0</div><div class="lbl">XP</div></div>
         <div class="player-stat"><div class="val" id="banner-done">0</div><div class="lbl">Completed</div></div>
-        <div class="player-stat"><div class="val" id="banner-streak">0</div><div class="lbl">Streak 🔥</div></div>
+        <div class="player-stat"><div class="val" id="banner-streak">0</div><div class="lbl">Streak &#128293;</div></div>
       </div>
       <button class="switch-btn" onclick="showNameEntry(null)">Switch player</button>
     </div>
   </div>
   <div class="grid" id="cardgrid"></div>
   <div class="lbwrap">
-    <div class="lbtitle">🏆 Leaderboard <span style="font-size:.75rem;color:var(--mu);font-weight:400;margin-left:.5rem">Top 10 this session</span></div>
+    <div class="lbtitle">&#127942; Leaderboard <span style="font-size:.75rem;color:var(--mu);font-weight:400;margin-left:.5rem">Top 10 A11y Champions</span></div>
     <div id="lbcontent"><div class="lb-empty">No scores yet. Complete a game to appear here!</div></div>
-    <button class="lbreset" onclick="resetLB()">Reset leaderboard</button>
   </div>
 </section>
 <div class="mw" id="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle" tabindex="-1">
   <div class="mo" id="modal-inner" tabindex="-1">
-    <div class="mh"><div><h2 class="mt" id="mtitle"></h2><span class="mtag" id="mtagel"></span></div><button class="mc" id="mclose" aria-label="Close">✕</button></div>
+    <div class="mh"><div><h2 class="mt" id="mtitle"></h2><span class="mtag" id="mtagel"></span></div><button class="mc" id="mclose" aria-label="Close">&#10005;</button></div>
     <div class="mb" id="mbody" aria-live="polite" aria-atomic="false"></div>
   </div>
 </div>
-<footer>A11y Arena · Based on <a href="https://www.w3.org/WAI/WCAG22/quickref/" target="_blank" rel="noopener">WCAG 2.2</a></footer>
+<footer>A11y Arena &#183; Based on <a href="https://www.w3.org/WAI/WCAG22/quickref/" target="_blank" rel="noopener">WCAG 2.2</a></footer>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+
 var currentPlayer='',session={xp:0,streak:0,done:0,completedIds:new Set()};
 var SB_URL='https://fwayotptumtgtfunrmwk.supabase.co/rest/v1/leaderboard';
 var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ3YXlvdHB0dW10Z3RmdW5ybXdrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMjM0MjgsImV4cCI6MjA5NDY5OTQyOH0.tcdmp9362-_xWzwgqW_tUHkuwS789Ttj1njvlnNU0WU';
 var SB_H={'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY};
-function startSession(name){currentPlayer=name;session={xp:0,streak:0,done:0,completedIds:new Set()};updateBannerAndSB();document.getElementById('start-zone').style.display='none';document.getElementById('player-zone').style.display='block';document.querySelectorAll('.gc').forEach(function(c){c.classList.remove('locked');});renderLB();}
-function commitCurrentPlayer(){
-  if(!currentPlayer)return;
-  // Step 1: check if player exists
-  fetch(SB_URL+'?name=eq.'+encodeURIComponent(currentPlayer)+'&select=id,xp,done',{headers:SB_H})
-    .then(function(r){
-      if(!r.ok)throw new Error('fetch failed: '+r.status);
-      return r.json();
-    })
-    .then(function(rows){
-      if(rows&&rows.length){
-        // Player exists — patch only if new scores are higher
-        var ex=rows[0];
-        var nxp=Math.max(ex.xp||0,session.xp);
-        var ndone=Math.max(ex.done||0,session.done);
-        return fetch(SB_URL+'?id=eq.'+ex.id,{
-          method:'PATCH',
-          headers:Object.assign({'Prefer':'return=representation'},SB_H),
-          body:JSON.stringify({xp:nxp,done:ndone})
-        });
-      } else {
-        // New player — insert
-        return fetch(SB_URL,{
-          method:'POST',
-          headers:Object.assign({'Prefer':'return=representation'},SB_H),
-          body:JSON.stringify({name:currentPlayer,xp:session.xp,done:session.done})
-        });
-      }
-    })
-    .then(function(r){
-      if(r&&!r.ok){
-        return r.text().then(function(t){
-          console.error('Supabase write error:',r.status,t);
-        });
-      }
-      fetchLB();
-    })
-    .catch(function(err){
-      console.error('commitCurrentPlayer error:',err);
-      fetchLB();
-    });
+
+var _rtWS=null;
+function connectRealtime(){
+  if(_rtWS&&_rtWS.readyState<2)return;
+  try{
+    var wsUrl='wss://fwayotptumtgtfunrmwk.supabase.co/realtime/v1/websocket?apikey='+SB_KEY+'&vsn=1.0.0';
+    _rtWS=new WebSocket(wsUrl);
+    _rtWS.onopen=function(){_rtWS.send(JSON.stringify({topic:'realtime:public:leaderboard',event:'phx_join',payload:{config:{postgres_changes:[{event:'*',schema:'public',table:'leaderboard'}]}},ref:'1'}));};
+    _rtWS.onmessage=function(e){try{var msg=JSON.parse(e.data);if(msg.event==='postgres_changes'||(msg.payload&&msg.payload.data)){fetchLB();}}catch(x){}};
+    _rtWS.onclose=function(){setTimeout(connectRealtime,3000);};
+    _rtWS.onerror=function(){};
+  }catch(x){}
+}
+
+function updateBannerAndSB(){
+  var sbx=document.getElementById('sbx');if(sbx)sbx.textContent=session.xp+' XP';
+  var sbs=document.getElementById('sbs');if(sbs)sbs.textContent=session.streak+' \uD83D\uDD25';
+  var sxp=document.getElementById('sxp');if(sxp)sxp.textContent=session.xp;
+  var bxp=document.getElementById('banner-xp');if(bxp)bxp.textContent=session.xp;
+  var bdn=document.getElementById('banner-done');if(bdn)bdn.textContent=session.done;
+  var bst=document.getElementById('banner-streak');if(bst)bst.textContent=session.streak;
+  if(currentPlayer){var nd=document.getElementById('player-name-display');if(nd)nd.textContent=currentPlayer;}
 }
 function addXP(n){session.xp+=n;session.streak++;updateBannerAndSB();commitCurrentPlayer();}
-function markDone(id,idx){if(session.completedIds.has(id))return;session.completedIds.add(id);session.done++;document.getElementById('sdone').textContent=session.done;var cards=document.querySelectorAll('.gc');if(cards[idx])cards[idx].classList.add('done');updateBannerAndSB();commitCurrentPlayer();}
-function updateBannerAndSB(){document.getElementById('sbx').textContent=session.xp+' XP';document.getElementById('sbs').textContent=session.streak+' 🔥';document.getElementById('sxp').textContent=session.xp;document.getElementById('banner-xp').textContent=session.xp;document.getElementById('banner-done').textContent=session.done;document.getElementById('banner-streak').textContent=session.streak;if(currentPlayer)document.getElementById('player-name-display').textContent=currentPlayer;}
-var MEDALS=['🥇','🥈','🥉'];
-function fetchLB(){
-  document.getElementById('lbcontent').innerHTML='<div class="lb-empty">Loading scores...</div>';
-  fetch(SB_URL+'?select=name,xp,done&order=xp.desc&limit=10',{headers:SB_H})
-    .then(function(r){
-      if(!r.ok)return r.text().then(function(t){throw new Error(r.status+' '+t);});
-      return r.json();
-    })
-    .then(function(data){
-      renderLB(Array.isArray(data)?data:[]);
-    })
-    .catch(function(err){
-      console.error('fetchLB error:',err);
-      document.getElementById('lbcontent').innerHTML='<div class="lb-empty">Could not load scores. Check console for details.</div>';
-    });
+function markDone(id,idx){
+  if(session.completedIds.has(id))return;
+  session.completedIds.add(id);session.done++;
+  var sd=document.getElementById('sdone');if(sd)sd.textContent=session.done;
+  var cards=document.querySelectorAll('.gc');
+  if(cards[idx])cards[idx].classList.add('done');
+  updateBannerAndSB();commitCurrentPlayer();
 }
+function startSession(name){
+  currentPlayer=name;session={xp:0,streak:0,done:0,completedIds:new Set()};
+  try{sessionStorage.setItem('a11y_player',name);}catch(e){}
+  updateBannerAndSB();
+  document.getElementById('start-zone').style.display='none';
+  document.getElementById('player-zone').style.display='block';
+  document.querySelectorAll('.gc').forEach(function(c){c.classList.remove('locked');});
+  fetchLB();
+}
+function commitCurrentPlayer(){
+  if(!currentPlayer)return;
+  fetch(SB_URL+'?on_conflict=name',{
+    method:'POST',
+    headers:Object.assign({'Prefer':'resolution=merge-duplicates,return=minimal'},SB_H),
+    body:JSON.stringify({name:currentPlayer,xp:session.xp,done:session.done})
+  }).then(function(r){if(!r.ok)return r.text().then(function(){});fetchLB();}).catch(function(){});
+}
+function fetchLB(){
+  var lbc=document.getElementById('lbcontent');
+  if(lbc)lbc.innerHTML='<div class="lb-empty">Loading scores...</div>';
+  fetch(SB_URL+'?select=name,xp,done&order=xp.desc&limit=10',{headers:SB_H})
+    .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+    .then(function(data){renderLB(Array.isArray(data)?data:[]);})
+    .catch(function(){var lbc=document.getElementById('lbcontent');if(lbc)lbc.innerHTML='<div class="lb-empty">Leaderboard unavailable.</div>';});
+}
+var MEDALS=['\uD83E\uDD47','\uD83E\uDD48','\uD83E\uDD49'];
 function renderLB(data){
-  if(!data||!data.length){document.getElementById('lbcontent').innerHTML='<div class="lb-empty">No scores yet. Be the first to play!</div>';return;}
+  var lbc=document.getElementById('lbcontent');if(!lbc)return;
+  if(!data||!data.length){lbc.innerHTML='<div class="lb-empty">No scores yet. Be the first to play!</div>';return;}
   var rows='';
   data.forEach(function(e,i){
     var isMe=e.name===currentPlayer;
-    rows+='<tr'+(isMe?' class="me"':'')+'><td class="rank">'+(MEDALS[i]||'#'+(i+1))+'</td>'
-      +'<td style="font-weight:500;color:#fff">'+e.name+(isMe?' <span style="color:var(--ac);font-size:.7rem">(you)</span>':'')+' </td>'
-      +'<td class="score">'+e.xp+' XP</td>'
-      +'<td style="color:var(--mu);font-size:.85rem">'+e.done+' completed</td></tr>';
+    rows+='<tr'+(isMe?' class="me"':'')+'>'+
+      '<td class="rank">'+(MEDALS[i]||'#'+(i+1))+'</td>'+
+      '<td style="font-weight:500;color:#fff">'+e.name+(isMe?' <span style="color:var(--ac);font-size:.7rem">(you)</span>':'')+' </td>'+
+      '<td class="score">'+e.xp+' XP</td>'+
+      '<td style="color:var(--mu);font-size:.85rem">'+e.done+' completed</td></tr>';
   });
-  document.getElementById('lbcontent').innerHTML='<table class="lbtable"><thead><tr><th></th><th>Player</th><th>XP</th><th>Games</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  lbc.innerHTML='<table class="lbtable"><thead><tr><th></th><th>Player</th><th>XP</th><th>Games</th></tr></thead><tbody>'+rows+'</tbody></table>';
 }
-function resetLB(){
-  if(!confirm('Reset the shared leaderboard for everyone? This cannot be undone.'))return;
-  fetch(SB_URL+'?xp=gte.0',{
-    method:'DELETE',
-    headers:Object.assign({'Prefer':'return=minimal'},SB_H)
-  }).then(function(){fetchLB();}).catch(function(){});
+
+function submitName(gameId){
+  var inp=document.getElementById('nameinp');
+  var name=(inp?inp.value.trim():'')||'Player';
+  if(!name.trim()){if(inp)inp.focus();return;}
+  var btn=document.querySelector('#mbody .btn.p');
+  if(btn){btn.textContent='Checking...';btn.disabled=true;}
+  var checkDone=false;
+  var checkTimeout=setTimeout(function(){
+    if(!checkDone){checkDone=true;startSession(name);if(gameId&&GAMES[gameId]){GAMES[gameId]();}else{closeGame();}}
+  },3000);
+  fetch(SB_URL+'?name=eq.'+encodeURIComponent(name)+'&select=name',{headers:SB_H})
+    .then(function(r){return r.json();})
+    .then(function(rows){
+      if(checkDone)return;clearTimeout(checkTimeout);checkDone=true;
+      if(rows&&rows.length){
+        var suggestions=[name+'2',name+'3',name+'_'+Math.floor(Math.random()*90+10)];
+        var errEl=document.getElementById('name-error');
+        if(errEl){
+          errEl.innerHTML='<strong style="color:var(--re)">That name is already taken.</strong><br>Try one of these: '
+            +suggestions.map(function(s){return '<button class="btn" style="margin:.25rem .2rem;padding:.3rem .75rem;font-size:.75rem" onclick="document.getElementById(\'nameinp\').value=\''+s+'\';document.getElementById(\'name-error\').innerHTML=\'\'">'+s+'</button>';}).join('');
+          errEl.style.display='block';
+        }
+        if(btn){btn.textContent='Start playing \u2192';btn.disabled=false;}
+        if(inp)inp.focus();
+      } else {startSession(name);if(gameId&&GAMES[gameId]){GAMES[gameId]();}else{closeGame();}}
+    })
+    .catch(function(){if(!checkDone){checkDone=true;clearTimeout(checkTimeout);startSession(name);if(gameId&&GAMES[gameId]){GAMES[gameId]();}else{closeGame();}}});
+}
+function moveFocusToModal(){
+  requestAnimationFrame(function(){
+    var modal=document.getElementById('modal-inner');if(!modal)return;
+    var focusable=getFocusable(modal);
+    if(focusable.length){focusable[0].focus();}else{modal.focus();}
+  });
+}
+function getFocusable(container){
+  return Array.from(container.querySelectorAll('button:not(:disabled),input:not(:disabled),a[href],[tabindex]:not([tabindex="-1"]):not(:disabled)')).filter(function(el){return el.offsetParent!==null;});
 }
 var CARDDATA=[
-  {id:'visual',  icon:'🔍',dif:'Beginner',    tag:'Visual / WCAG', cc:'#ff6b6b',title:'UI Audit',        desc:'A rendered UI element has an accessibility issue. Identify what\'s wrong. 5 rounds.',xp:150},
-  {id:'contrast',icon:'🎨',dif:'Beginner',    tag:'Contrast',      cc:'#d4f54e',title:'Lowest Contrast', desc:'6 labelled swatches — pick the one with the lowest contrast ratio. 5 rounds.',xp:120},
-  {id:'plain',   icon:'✍️', dif:'Beginner',   tag:'WCAG Scenarios', cc:'#ffb347',title:'Right or Wrong?', desc:'Real WCAG 2.2 UI decisions — pick the correct approach. 5 rounds.',xp:100},
-  {id:'kbd',     icon:'⌨️', dif:'Intermediate',tag:'Keyboard',      cc:'#2ee8b8',title:'Focus',           desc:'Tab to find the target button. Focus indicator removed in later levels.',xp:110},
-  {id:'caption', icon:'💬', dif:'Beginner',    tag:'Captions',      cc:'#ff6b6b',title:'Caption This',    desc:'Pick the most accurate caption for each video scenario. 5 rounds.',xp:100},
-  {id:'heading', icon:'📋', dif:'Intermediate',tag:'Structure',      cc:'#d4f54e',title:'Heading', desc:'Three page outlines — pick the one with correct heading hierarchy. 5 rounds.',xp:120},
-  {id:'alt',     icon:'🖼️', dif:'Beginner',   tag:'Alt Text',       cc:'#9b7fff',title:'Alt Text Battle', desc:'Pick the best alt text for each image in context. 5 rounds.',xp:100},
+  {id:'visual',  icon:'\uD83D\uDD0D',dif:'Beginner',    tag:'Visual / WCAG', cc:'#ff6b6b',title:'UI Audit',        desc:"A rendered UI element has an accessibility issue. Identify what's wrong. 5 rounds.",xp:150},
+  {id:'contrast',icon:'\uD83C\uDFA8',dif:'Beginner',    tag:'Contrast',      cc:'#d4f54e',title:'Lowest Contrast', desc:'6 labelled swatches \u2014 pick the one with the lowest contrast ratio. 5 rounds.',xp:120},
+  {id:'plain',   icon:'\u270D\uFE0F', dif:'Beginner',   tag:'WCAG Scenarios', cc:'#ffb347',title:'Right or Wrong?', desc:'Real WCAG 2.2 UI decisions \u2014 pick the correct approach. 5 rounds.',xp:100},
+  {id:'kbd',     icon:'\u2328\uFE0F', dif:'Intermediate',tag:'Keyboard',      cc:'#2ee8b8',title:'Focus',           desc:'Tab to find the target button. Focus indicator removed in later levels.',xp:110},
+  {id:'caption', icon:'\uD83D\uDCAC', dif:'Beginner',    tag:'Captions',      cc:'#ff6b6b',title:'Caption This',    desc:'Pick the most accurate caption for each video scenario. 5 rounds.',xp:100},
+  {id:'heading', icon:'\uD83D\uDCCB', dif:'Intermediate',tag:'Structure',      cc:'#d4f54e',title:'Heading',         desc:'Three page outlines \u2014 pick the one with correct heading hierarchy. 5 rounds.',xp:120},
+  {id:'alt',     icon:'\uD83D\uDDBC\uFE0F',dif:'Beginner',tag:'Alt Text',    cc:'#9b7fff',title:'Alt Text Battle', desc:'Pick the best alt text for each image in context. 5 rounds.',xp:100},
 ];
-(function buildCards(){var g=document.getElementById('cardgrid');CARDDATA.forEach(function(c,i){var d=document.createElement('div');d.className='gc locked';d.style.setProperty('--cc',c.cc);d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','Play '+c.title);d.innerHTML='<div class="ck">✓</div><div class="ct"><span class="ci">'+c.icon+'</span><span class="dif">'+c.dif+'</span></div><span class="tag" style="border-color:'+c.cc+';color:'+c.cc+'">'+c.tag+'</span><p class="cn">'+c.title+'</p><p class="cd">'+c.desc+'</p><div class="cm"><button class="pb" style="background:'+c.cc+';border-color:'+c.cc+';color:#0b0b0e" tabindex="-1">Play →</button><span class="cx">+<span>'+c.xp+'</span> XP</span></div>';d.addEventListener('click',function(){if(!currentPlayer){showNameEntry(c.id);return;}openGame(c.id);});d.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();d.click();}});g.appendChild(d);});})();
+(function buildCards(){
+  var g=document.getElementById('cardgrid');
+  CARDDATA.forEach(function(c,i){
+    var d=document.createElement('div');
+    d.className='gc locked';
+    d.style.setProperty('--cc',c.cc);
+    d.setAttribute('role','button');d.setAttribute('tabindex','0');
+    d.setAttribute('aria-label','Play '+c.title);
+    d.innerHTML='<div class="ck" aria-hidden="true">\u2713</div>'
+      +'<div class="ct"><span class="ci" aria-hidden="true">'+c.icon+'</span><span class="dif">'+c.dif+'</span></div>'
+      +'<span class="tag" style="border-color:'+c.cc+';color:'+c.cc+'">'+c.tag+'</span>'
+      +'<p class="cn">'+c.title+'</p><p class="cd">'+c.desc+'</p>'
+      +'<div class="cm"><button class="pb" style="background:'+c.cc+';border-color:'+c.cc+';color:#0b0b0e" tabindex="-1">Play <span aria-hidden="true">\u2192</span></button><span class="cx">+<span>'+c.xp+'</span> XP</span></div>';
+    d.addEventListener('click',function(){if(!currentPlayer){showNameEntry(c.id);return;}window._lastFocused=d;openGame(c.id);});
+    d.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();d.click();}});
+    g.appendChild(d);
+  });
+})();
 function openGame(id){
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
   GAMES[id]();
-  // Focus moves to modal immediately after content is set
-  setTimeout(function(){
-    var modal=document.getElementById('modal-inner');
-    var firstFocusable=modal.querySelector('button,input,[tabindex="0"]');
-    if(firstFocusable)firstFocusable.focus();
-    else modal.focus();
-  },50);
+  moveFocusToModal();
 }
 function closeGame(){
   document.getElementById('modal').classList.remove('open');
   document.body.style.overflow='';
   if(window._ti)clearInterval(window._ti);
-  // Return focus to the card that opened the modal
-  if(window._lastFocused)window._lastFocused.focus();
+  requestAnimationFrame(function(){if(window._lastFocused&&document.body.contains(window._lastFocused)){window._lastFocused.focus();}});
 }
-// Track last focused element before modal opens
-document.querySelectorAll('.gc').forEach(function(c){
-  c.addEventListener('click',function(){window._lastFocused=c;});
-});
 document.getElementById('modal').addEventListener('click',function(e){if(e.target===document.getElementById('modal'))closeGame();});
 document.getElementById('mclose').addEventListener('click',closeGame);
-// Focus trap inside modal
 document.getElementById('modal').addEventListener('keydown',function(e){
   if(!document.getElementById('modal').classList.contains('open'))return;
+  if(e.key==='Escape'){e.preventDefault();closeGame();return;}
+  if(e.key!=='Tab')return;
   var modal=document.getElementById('modal-inner');
-  var focusable=Array.from(modal.querySelectorAll('button:not(:disabled),input:not(:disabled),a,[tabindex="0"]:not(:disabled)'));
-  if(!focusable.length)return;
-  var first=focusable[0];
-  var last=focusable[focusable.length-1];
-  if(e.key==='Tab'){
-    if(e.shiftKey){if(document.activeElement===first){e.preventDefault();last.focus();}}
-    else{if(document.activeElement===last){e.preventDefault();first.focus();}}
-  }
-  if(e.key==='Escape')closeGame();
+  var focusable=getFocusable(modal);
+  if(!focusable.length){e.preventDefault();return;}
+  var first=focusable[0],last=focusable[focusable.length-1];
+  if(e.shiftKey){if(document.activeElement===first||!modal.contains(document.activeElement)){e.preventDefault();last.focus();}}
+  else{if(document.activeElement===last||!modal.contains(document.activeElement)){e.preventDefault();first.focus();}}
 });
-function showNameEntry(gameId){commitCurrentPlayer();document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';setModal('Who\'s playing?','WCAG 2.2','#d4f54e','<div class="name-screen"><h2>'+(currentPlayer?'Switch player':'Enter your name')+'</h2><p>'+(currentPlayer?'Current player <strong style="color:#fff">'+currentPlayer+'</strong> has '+session.xp+' XP. Their score is saved to the leaderboard.':'Your name will appear on the leaderboard. XP is tracked as you play — even partial runs count.')+'</p><input class="name-inp" id="nameinp" type="text" placeholder="Your name..." maxlength="24" autocomplete="off"><div><button class="btn p" onclick="submitName(\''+(gameId||'')+'\')">Start playing <span aria-hidden="true">→</span></button></div></div>');var inp=document.getElementById('nameinp');if(inp){inp.focus();inp.addEventListener('keydown',function(e){if(e.key==='Enter')submitName(gameId||'');});}}
-function submitName(gameId){var inp=document.getElementById('nameinp');var name=(inp?inp.value.trim():'')||'Player';startSession(name);if(gameId&&GAMES[gameId]){GAMES[gameId]();}else{closeGame();}}
-function setModal(title,tag,color,html){document.getElementById('mtitle').textContent=title;var t=document.getElementById('mtagel');t.textContent=tag;t.style.cssText='background:'+color+'22;color:'+color+';border:2px solid '+color+'55';document.getElementById('mbody').innerHTML=html;}
-function winScreen(medal,title,sub,xp,id,idx,fn){addXP(xp);markDone(id,idx);document.getElementById('mbody').innerHTML='<div class="end"><span class="em">'+medal+'</span><div class="et">'+title+'</div><div class="es">'+sub+'</div><div class="xpb">+'+xp+' XP earned</div><div class="br" style="justify-content:center"><button class="btn p" onclick="closeGame()">Back to games</button><button class="btn" onclick="('+fn.toString()+')()">Play again</button></div></div>';}
-function loseScreen(medal,title,sub,fn){if(session.streak>0){session.streak=Math.max(0,session.streak-1);updateBannerAndSB();}document.getElementById('mbody').innerHTML='<div class="end"><span class="em">'+medal+'</span><div class="et">'+title+'</div><div class="es">'+sub+'</div><div class="br" style="justify-content:center"><button class="btn p" onclick="('+fn.toString()+')()">Try again</button><button class="btn" onclick="closeGame()">Back</button></div></div>';}
-function livesHTML(n,total){var s='';for(var i=0;i<total;i++)s+='<span class="li'+(i>=n?' lost':'')+'" aria-hidden="true">❤️</span>';return s;}
+function showNameEntry(gameId){
+  commitCurrentPlayer();
+  try{sessionStorage.removeItem('a11y_player');}catch(e){}
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+  setModal("Who's playing?",'WCAG 2.2','#d4f54e',
+    '<div class="name-screen"><h2>'+(currentPlayer?'Switch player':'Enter your name')+'</h2>'
+    +'<p>'+(currentPlayer?'Current player <strong style="color:#fff">'+currentPlayer+'</strong> has '+session.xp+' XP. Score saved to leaderboard.':"Your name appears on the shared leaderboard. XP tracks as you play.")+'</p>'
+    +'<input class="name-inp" id="nameinp" type="text" placeholder="Your name..." maxlength="24" autocomplete="off">'
+    +'<div id="name-error" style="display:none;margin:.5rem 0 .75rem;font-size:.85rem;line-height:1.75"></div>'
+    +'<div><button class="btn p" onclick="submitName(\''+(gameId||'')+'\')">Start playing \u2192</button></div></div>');
+  var inp=document.getElementById('nameinp');
+  if(inp){inp.addEventListener('keydown',function(e){if(e.key==='Enter')submitName(gameId||'');});}
+  moveFocusToModal();
+}
+function setModal(title,tag,color,html){
+  document.getElementById('mtitle').textContent=title;
+  var t=document.getElementById('mtagel');
+  t.textContent=tag;t.style.cssText='background:'+color+'22;color:'+color+';border:2px solid '+color+'55';
+  document.getElementById('mbody').innerHTML=html;
+  document.getElementById('modal-inner').setAttribute('aria-label',title);
+}
+function winScreen(medal,title,sub,xp,id,idx,fn){
+  addXP(xp);markDone(id,idx);
+  document.getElementById('mbody').innerHTML='<div class="end"><span class="em">'+medal+'</span><div class="et">'+title+'</div><div class="es">'+sub+'</div><div class="xpb">+'+xp+' XP earned</div><div class="br" style="justify-content:center"><button class="btn p" onclick="closeGame()">Back to games</button><button class="btn" onclick="('+fn.toString()+')()">Play again</button></div></div>';
+}
+function loseScreen(medal,title,sub,fn){
+  if(session.streak>0){session.streak=Math.max(0,session.streak-1);updateBannerAndSB();}
+  document.getElementById('mbody').innerHTML='<div class="end"><span class="em">'+medal+'</span><div class="et">'+title+'</div><div class="es">'+sub+'</div><div class="br" style="justify-content:center"><button class="btn p" onclick="('+fn.toString()+')()">Try again</button><button class="btn" onclick="closeGame()">Back</button></div></div>';
+}
+function livesHTML(n,total){var s='';for(var i=0;i<total;i++)s+='<span class="li'+(i>=n?' lost':'')+'" aria-hidden="true">\u2764\uFE0F</span>';return s;}
 function progFill(n,total){return '<div class="pg"><div class="pf" style="width:'+(n/total*100)+'%"></div></div>';}
 function shuffle(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 
 // ══ GAME 1 — UI AUDIT ══
-// All questions focus on visual and keyboard issues only — no screen reader assumptions
 var VISUAL_Q=[
-  {label:'Sign-in form — email input',
+  {label:'Sign-in form \u2014 email input',
    render:'<input style="width:100%;padding:.58rem .9rem;background:#23232d;border:2px solid rgba(255,255,255,.25);border-radius:8px;color:#e0dff0;font-size:.88rem;font-family:system-ui,Arial,sans-serif;outline:none" placeholder="Email address" readonly>',
-   q:'What is the primary visual accessibility issue with this input?',
+   q:"What is the primary visual accessibility issue with this input?",
    opts:[
-     {t:'The placeholder text disappears when you click the field — there is no persistent visible label',c:true,w:'WCAG 1.3.1 — a visible label must always be present so users know what the field is for, even after they start typing. Placeholder text vanishes on focus, leaving users with no visual cue.'},
+     {t:'The placeholder text disappears when you click the field \u2014 there is no persistent visible label',c:true,w:'WCAG 1.3.1 \u2014 a visible label must always be present so users know what the field is for, even after they start typing. Placeholder text vanishes on focus, leaving users with no visual cue.'},
      {t:'The border colour is too faint',c:false,w:'The border is visible. The bigger failure is the missing persistent visible label.'},
      {t:'The font size is too small for legibility',c:false,w:'Font size is not the core issue here. The missing visible label is the WCAG failure.'},
      {t:'The input background is too dark',c:false,w:'Background contrast is not the primary issue. The critical failure is the absent visible label above the field.'}
    ]},
-  {label:'Password field — error state',
+  {label:'Password field \u2014 error state',
    render:'<div><label style="font-size:.82rem;color:#e0dff0;display:block;margin-bottom:.25rem;font-family:system-ui,Arial,sans-serif">Password</label><input style="width:100%;padding:.58rem .9rem;background:#23232d;border:2px solid #ff6b6b;border-radius:8px;color:#e0dff0;font-size:.88rem;font-family:system-ui,Arial,sans-serif;outline:none" value="hunter2" readonly></div>',
    q:'This password field is in an error state. What is visually missing?',
    opts:[
-     {t:'A visible text error message explaining what is wrong',c:true,w:'WCAG 1.4.1 — colour alone (the red border) must not be the only visual indicator of an error. A visible text message explaining the problem must accompany any colour cue.'},
+     {t:'A visible text error message explaining what is wrong',c:true,w:'WCAG 1.4.1 \u2014 colour alone (the red border) must not be the only visual indicator of an error. A visible text message explaining the problem must accompany any colour cue.'},
      {t:'The border should flash to draw attention',c:false,w:'Flashing borders can cause issues under WCAG 2.3. The fix is adding a visible text error message.'},
-     {t:'The label should turn red too',c:false,w:'Changing the label colour would add another colour-only cue — still not a text message. WCAG requires text that describes the error.'},
+     {t:'The label should turn red too',c:false,w:'Changing the label colour would add another colour-only cue \u2014 still not a text message. WCAG requires text that describes the error.'},
      {t:'The field should be cleared automatically',c:false,w:'Auto-clearing input violates user control principles. The missing element is a visible text error description.'}
    ]},
-  {label:'Site header — logo linking to homepage',
-   render:'<a href="#" onclick="return false" style="display:inline-flex;align-items:center;gap:.5rem;text-decoration:none"><div style="width:32px;height:32px;background:#d4f54e;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem">🌸</div><span style="font-family:system-ui,Arial,sans-serif;font-weight:800;color:#fff;font-size:1.1rem">Bloom</span></a>',
+  {label:'Site header \u2014 logo linking to homepage',
+   render:'<a href="#" onclick="return false" style="display:inline-flex;align-items:center;gap:.5rem;text-decoration:none"><div style="width:32px;height:32px;background:#d4f54e;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem">\uD83C\uDF38</div><span style="font-family:system-ui,Arial,sans-serif;font-weight:800;color:#fff;font-size:1.1rem">Bloom</span></a>',
    q:'A sighted keyboard user tabs to this logo link. What is the problem?',
    opts:[
-     {t:'There is no visible focus indicator — the user cannot tell the link is focused',c:true,w:'WCAG 2.4.11 (new in WCAG 2.2) — every keyboard-focusable element needs a visible focus indicator with sufficient contrast and area. Without one, keyboard users cannot see where they are on the page.'},
+     {t:'There is no visible focus indicator \u2014 the user cannot tell the link is focused',c:true,w:'WCAG 2.4.11 (new in WCAG 2.2) \u2014 every keyboard-focusable element needs a visible focus indicator with sufficient contrast and area. Without one, keyboard users cannot see where they are on the page.'},
      {t:'The logo image is missing descriptive text below it',c:false,w:'The brand name "Bloom" is visible. The keyboard issue is the absent focus indicator.'},
      {t:'The link should have an underline to show it is clickable',c:false,w:'Underlines are recommended for inline text links but not mandatory for navigation links. The keyboard failure is the missing focus ring.'},
      {t:'The logo colour does not contrast enough with the background',c:false,w:'The yellow logo on dark background passes contrast. The problem is the missing keyboard focus indicator.'}
    ]},
   {label:'Icon-only toolbar button',
-   render:'<button onclick="return false" style="width:42px;height:42px;background:#23232d;border:2px solid rgba(255,255,255,.25);border-radius:8px;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;outline:none">🗑️</button>',
+   render:'<button onclick="return false" style="width:42px;height:42px;background:#23232d;border:2px solid rgba(255,255,255,.25);border-radius:8px;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;outline:none">\uD83D\uDDD1\uFE0F</button>',
    q:'A keyboard user tabs to this delete button. What is wrong with it?',
    opts:[
-     {t:'There is no visible focus indicator when the button is focused',c:true,w:'WCAG 2.4.11 — the outline:none style removes focus visibility entirely. Keyboard users cannot see which button is currently focused. Every interactive element needs a clearly visible focus ring.'},
-     {t:'The button is too small to be a valid touch target',c:false,w:'At 42×42px this passes WCAG 2.2 SC 2.5.8 (minimum 24×24px). The keyboard failure is the missing focus indicator.'},
+     {t:'There is no visible focus indicator when the button is focused',c:true,w:'WCAG 2.4.11 \u2014 the outline:none style removes focus visibility entirely. Keyboard users cannot see which button is currently focused. Every interactive element needs a clearly visible focus ring.'},
+     {t:'The button is too small to be a valid touch target',c:false,w:'At 42x42px this passes WCAG 2.2 SC 2.5.8 (minimum 24x24px). The keyboard failure is the missing focus indicator.'},
      {t:'The emoji icon is not accessible to keyboard users',c:false,w:'The button itself is keyboard-focusable. The issue is that you cannot see when it is focused because the focus ring has been removed.'},
      {t:'The button needs a text label next to the icon',c:false,w:'A visible label would improve usability, but the keyboard accessibility failure right now is the removed focus indicator.'}
    ]},
-  {label:'Primary CTA button — low contrast',
+  {label:'Primary CTA button \u2014 low contrast',
    render:'<button onclick="return false" style="background:#cccccc;color:#aaaaaa;border:none;padding:.65rem 1.5rem;border-radius:8px;font-size:.95rem;font-family:system-ui,Arial,sans-serif;font-weight:600;cursor:default">Submit application</button>',
    q:'What visual accessibility issue does this button have?',
    opts:[
-     {t:'The text-to-background contrast ratio fails WCAG AA (~1.5:1, needs 4.5:1)',c:true,w:'WCAG 1.4.3 — normal-weight text on interactive elements needs a 4.5:1 contrast ratio. This grey-on-grey combination (~1.5:1) makes the label nearly invisible for any user, especially in bright environments.'},
+     {t:'The text-to-background contrast ratio fails WCAG AA (~1.5:1, needs 4.5:1)',c:true,w:'WCAG 1.4.3 \u2014 normal-weight text on interactive elements needs a 4.5:1 contrast ratio. This grey-on-grey combination (~1.5:1) makes the label nearly invisible for any user, especially in bright environments.'},
      {t:'The button needs an icon to reinforce its meaning',c:false,w:'Icons are optional enhancements. The critical failure is the contrast ratio between text and background.'},
      {t:'The border-radius makes it unclear it is a button',c:false,w:'Rounded corners are a widely understood button pattern. The failure is contrast.'},
      {t:'The button is too wide for the content',c:false,w:'Button width is not a WCAG concern. The visual failure is the contrast ratio.'}
    ]},
-  {label:'Checkbox — built with a div',
+  {label:'Checkbox \u2014 built with a div',
    render:'<div style="display:flex;align-items:center;gap:.5rem"><div style="width:14px;height:14px;background:#23232d;border:2px solid rgba(255,255,255,.3);border-radius:3px;flex-shrink:0"></div><span style="font-size:.88rem;color:#e0dff0;font-family:system-ui,Arial,sans-serif">I agree to the terms and conditions</span></div>',
    q:'A keyboard user needs to tick this checkbox. What is the problem?',
    opts:[
-     {t:'It cannot receive keyboard focus — pressing Tab will skip it entirely',c:true,w:'WCAG 2.1.1 — all interactive controls must be operable by keyboard. A plain div is not keyboard-focusable by default, so Tab skips it entirely. Use a real <input type="checkbox"> or add tabindex="0" and keyboard event handlers.'},
-     {t:'The checkbox is too small to click with a mouse',c:false,w:'At 14×14px it is below WCAG 2.2 SC 2.5.8\'s 24×24px minimum — true. But the more critical failure for keyboard users is it cannot be focused at all.'},
+     {t:'It cannot receive keyboard focus \u2014 pressing Tab will skip it entirely',c:true,w:'WCAG 2.1.1 \u2014 all interactive controls must be operable by keyboard. A plain div is not keyboard-focusable by default, so Tab skips it entirely. Use a real <input type="checkbox"> or add tabindex="0" and keyboard event handlers.'},
+     {t:"The checkbox is too small to click with a mouse",c:false,w:"At 14x14px it is below WCAG 2.2 SC 2.5.8's 24x24px minimum \u2014 true. But the more critical failure for keyboard users is it cannot be focused at all."},
      {t:'The label text is too small',c:false,w:'Text size is not the keyboard failure here. The element cannot be focused or activated by keyboard.'},
      {t:'The checkbox should be on the right side of the label',c:false,w:'Side placement is a convention choice. The keyboard failure is that this div cannot be focused or activated.'}
    ]},
@@ -443,34 +475,34 @@ var VISUAL_Q=[
    render:'<div style="position:relative;height:48px;background:#23232d;border-radius:8px;overflow:hidden;border:2px solid rgba(255,255,255,.2)"><a href="#" onclick="return false" style="position:absolute;top:-40px;left:0;background:#d4f54e;color:#0b0b0e;padding:.5rem 1rem;font-size:.85rem;font-weight:700;text-decoration:none;border-radius:0 0 8px 0" tabindex="0">Skip to main content</a><span style="padding:0 1rem;line-height:48px;font-size:.75rem;color:#e0dff0">Navigation bar</span></div>',
    q:'A keyboard user presses Tab on this page. What is the problem with this skip link?',
    opts:[
-     {t:'The skip link receives keyboard focus but is never visually shown — the user cannot see it',c:true,w:'WCAG 2.4.1 — skip links must become visible when focused so sighted keyboard users can see and activate them. This link is permanently hidden (top:-40px) and never surfaces on focus, making it useless for sighted keyboard users.'},
+     {t:'The skip link receives keyboard focus but is never visually shown \u2014 the user cannot see it',c:true,w:'WCAG 2.4.1 \u2014 skip links must become visible when focused so sighted keyboard users can see and activate them. This link is permanently hidden (top:-40px) and never surfaces on focus, making it useless for sighted keyboard users.'},
      {t:'Skip links must always be permanently visible on screen',c:false,w:'WCAG 2.4.1 permits skip links that only appear on focus. The problem here is that it never appears even when focused.'},
      {t:'The skip link text is not descriptive enough',c:false,w:'"Skip to main content" is the recommended phrasing. The failure is visibility on keyboard focus.'},
-     {t:'The skip link should be at the bottom of the page',c:false,w:'Skip links must be the first focusable element — at the very top. The issue here is that it never becomes visible when focused.'}
+     {t:'The skip link should be at the bottom of the page',c:false,w:'Skip links must be the first focusable element \u2014 at the very top. The issue here is that it never becomes visible when focused.'}
    ]},
-  {label:'Form — required fields with asterisks only',
-   render:'<div style="display:flex;flex-direction:column;gap:.65rem"><div><label style="font-size:.82rem;color:#e0dff0;display:block;margin-bottom:.25rem;font-family:system-ui,Arial,sans-serif">Full name <span style="color:#ff6b6b">*</span></label><input style="width:100%;padding:.5rem .9rem;background:#23232d;border:2px solid rgba(255,255,255,.2);border-radius:8px;color:#e0dff0;font-size:.85rem;outline:none;font-family:system-ui,Arial,sans-serif" placeholder="" readonly></div><div><label style="font-size:.82rem;color:#e0dff0;display:block;margin-bottom:.25rem;font-family:system-ui,Arial,sans-serif">Email <span style="color:#ff6b6b">*</span></label><input style="width:100%;padding:.5rem .9rem;background:#23232d;border:2px solid rgba(255,255,255,.2);border-radius:8px;color:#e0dff0;font-size:.85rem;outline:none;font-family:system-ui,Arial,sans-serif" placeholder="" readonly></div></div>',
+  {label:'Form \u2014 required fields with asterisks only',
+   render:'<div style="display:flex;flex-direction:column;gap:.65rem"><div><label style="font-size:.82rem;color:#e0dff0;display:block;margin-bottom:.25rem;font-family:system-ui,Arial,sans-serif">Full name <span style="color:#ff6b6b">*</span></label><input style="width:100%;padding:.5rem .9rem;background:#23232d;border:2px solid rgba(255,255,255,.2);border-radius:8px;color:#e0dff0;font-size:.85rem;outline:none;font-family:system-ui,Arial,sans-serif" readonly></div><div><label style="font-size:.82rem;color:#e0dff0;display:block;margin-bottom:.25rem;font-family:system-ui,Arial,sans-serif">Email <span style="color:#ff6b6b">*</span></label><input style="width:100%;padding:.5rem .9rem;background:#23232d;border:2px solid rgba(255,255,255,.2);border-radius:8px;color:#e0dff0;font-size:.85rem;outline:none;font-family:system-ui,Arial,sans-serif" readonly></div></div>',
    q:'This form uses red asterisks to mark required fields. What is visually missing?',
    opts:[
-     {t:'A visible note explaining what the asterisk means (e.g. "* Required")',c:true,w:'WCAG 3.3.2 — if symbols are used to convey meaning, their meaning must be explained visibly. Users unfamiliar with the asterisk convention — including many first-time users — will not know which fields are required.'},
+     {t:'A visible note explaining what the asterisk means (e.g. "* Required")',c:true,w:'WCAG 3.3.2 \u2014 if symbols are used to convey meaning, their meaning must be explained visibly. Users unfamiliar with the asterisk convention will not know which fields are required.'},
      {t:'All fields should display the word "Required" instead of an asterisk',c:false,w:'Either approach works. The WCAG requirement is that whatever convention is used must be explained visibly somewhere on the form.'},
      {t:'The asterisk colour does not contrast enough with the label',c:false,w:'Red on dark background passes contrast here. The issue is the unexplained convention.'},
      {t:'Optional fields should also be marked so users know which are optional',c:false,w:'Marking optional fields is a usability best practice but not the WCAG 3.3.2 requirement. The primary issue is the unexplained asterisk convention.'}
    ]},
-  {label:'Navigation — focus trap in modal',
+  {label:'Navigation \u2014 focus trap in modal',
    render:'<div style="background:#1a1a2e;border:2px solid rgba(155,127,255,.4);border-radius:10px;padding:1.1rem"><div style="font-size:.82rem;color:#c8b8ff;margin-bottom:.75rem;font-family:system-ui,Arial,sans-serif;font-weight:700">Settings modal</div><div style="display:flex;gap:.5rem;flex-wrap:wrap"><button style="padding:.4rem .85rem;background:#9b7fff;border:none;border-radius:6px;font-size:.82rem;color:#0b0b0e;font-family:system-ui,Arial,sans-serif;cursor:default">Save</button><button style="padding:.4rem .85rem;background:transparent;border:2px solid rgba(255,255,255,.25);border-radius:6px;font-size:.82rem;color:#e0dff0;font-family:system-ui,Arial,sans-serif;cursor:default">Cancel</button></div></div>',
-   q:'A keyboard user opens this modal and can Tab between the buttons — but cannot Tab out. What WCAG issue is this?',
+   q:'A keyboard user opens this modal and can Tab between the buttons \u2014 but cannot Tab out. What WCAG issue is this?',
    opts:[
-     {t:'A focus trap — keyboard users are stuck inside the modal with no way to exit via keyboard',c:true,w:'WCAG 2.1.2 (No Keyboard Trap) — users must always be able to move focus away from any component using standard keys (Tab, Shift+Tab, Escape). A modal must provide a keyboard escape route, typically via an Escape key handler or a visible Close button.'},
+     {t:'A focus trap \u2014 keyboard users are stuck inside the modal with no way to exit via keyboard',c:true,w:'WCAG 2.1.2 (No Keyboard Trap) \u2014 users must always be able to move focus away from any component using standard keys (Tab, Shift+Tab, Escape). A modal must provide a keyboard escape route, typically via an Escape key handler or a visible Close button.'},
      {t:'The modal buttons are too close together for easy clicking',c:false,w:'Button spacing is a usability concern but not the WCAG failure here. The issue is users cannot leave the modal by keyboard.'},
      {t:'The modal background overlay should be darker',c:false,w:'Overlay contrast is not the keyboard failure. The issue is the inability to exit the modal via keyboard.'},
      {t:'The modal title should be larger',c:false,w:'Typography is not the WCAG failure here. The critical issue is keyboard users being trapped with no exit route.'}
    ]},
-  {label:'Link — non-descriptive text',
+  {label:'Link \u2014 non-descriptive text',
    render:'<p style="font-size:.9rem;color:#e0dff0;line-height:1.6;font-family:system-ui,Arial,sans-serif">Our accessibility statement is available to download. <a href="#" onclick="return false" style="color:#9b7fff;text-decoration:underline">Click here</a> to get the document.</p>',
    q:'A keyboard user tabs through all links on this page to navigate. What is the problem with this link?',
    opts:[
-     {t:'The link text "Click here" gives no information about where the link goes or what it does',c:true,w:'WCAG 2.4.4 — link text must describe the destination or purpose when read in isolation. When tabbing through links on a page, "Click here" gives a keyboard user zero context. It should read "Download our accessibility statement".'},
+     {t:'"Click here" gives no information about where the link goes or what it does',c:true,w:'WCAG 2.4.4 \u2014 link text must describe the destination or purpose when read in isolation. When tabbing through links on a page, "Click here" gives a keyboard user zero context. It should read "Download our accessibility statement".'},
      {t:'The link colour does not contrast enough with the surrounding text',c:false,w:'Link colour contrast is measured against the background, not surrounding text. The WCAG failure is the non-descriptive link text.'},
      {t:'Links in body text must always open in a new tab',c:false,w:'Opening behaviour is not a WCAG requirement. The failure is the uninformative link label.'},
      {t:'The link needs an underline to be recognised as a link',c:false,w:'This link does have an underline. The WCAG failure is the non-descriptive text "Click here".'}
@@ -481,17 +513,17 @@ function gameVisual(){visIdx=0;visScore=0;visLives=3;var qs=shuffle(VISUAL_Q).sl
 function renderVis(){
   var q=window._visQ[visIdx];var lh=livesHTML(visLives,3);
   var opts='';q.opts.forEach(function(o,i){opts+='<button class="op" id="vop'+i+'"><span class="op-radio"></span><span class="op-text">'+o.t+'</span></button>';});
-  document.getElementById('mbody').innerHTML='<p class="gi">A real UI element has a visual or keyboard accessibility issue. Identify what\'s wrong.</p><div class="gr"><div class="pi">Q<span class="v">'+(visIdx+1)+'</span>/5 · Score: <span class="v">'+visScore+'</span></div><div class="lv">'+lh+'</div></div>'+progFill(visIdx,5)+'<div class="ui-demo"><div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:.65rem;font-weight:700;font-family:system-ui,Arial,sans-serif">'+q.label+'</div>'+q.render+'</div><p style="font-size:.93rem;color:#fff;font-weight:500;margin-bottom:.75rem">'+q.q+'</p><div class="ops">'+opts+'</div><div class="res" id="vres"></div><div class="br" id="vbtns" style="display:none">'+(visIdx<4?'<button class="btn p" id="vnxt">Next →</button>':'<button class="btn p" id="vfin">See result →</button>')+'</div>';
+  document.getElementById('mbody').innerHTML='<p class="gi">A real UI element has a visual or keyboard accessibility issue. Identify what\'s wrong.</p><div class="gr"><div class="pi">Q<span class="v">'+(visIdx+1)+'</span>/5 \u00b7 Score: <span class="v">'+visScore+'</span></div><div class="lv">'+lh+'</div></div>'+progFill(visIdx,5)+'<div class="ui-demo"><div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:.65rem;font-weight:700;font-family:system-ui,Arial,sans-serif">'+q.label+'</div>'+q.render+'</div><p style="font-size:.93rem;color:#fff;font-weight:500;margin-bottom:.75rem">'+q.q+'</p><div class="ops">'+opts+'</div><div class="res" id="vres"></div><div class="br" id="vbtns" style="display:none">'+(visIdx<4?'<button class="btn p" id="vnxt">Next \u2192</button>':'<button class="btn p" id="vfin">See result \u2192</button>')+'</div>';
   q.opts.forEach(function(o,i){document.getElementById('vop'+i).addEventListener('click',function(){answerVis(i,o);});});
   var nx=document.getElementById('vnxt');if(nx)nx.addEventListener('click',function(){visIdx++;renderVis();});
   var fn=document.getElementById('vfin');if(fn)fn.addEventListener('click',finishVis);
 }
 function answerVis(i,chosen){
   var q=window._visQ[visIdx];q.opts.forEach(function(o,j){var b=document.getElementById('vop'+j);if(b){if(o.c)b.classList.add('ok');else if(j===i)b.classList.add('no');b.disabled=true;}});
-  var ok=chosen.c;if(ok)visScore++;else{visLives--;if(visLives<=0){setTimeout(function(){loseScreen('💔','Out of lives!','Review WCAG 2.2 focus and contrast rules and try again.',gameVisual);},400);return;}}
-  var res=document.getElementById('vres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'✅ ':'❌ ')+chosen.w;document.getElementById('vbtns').style.display='flex';
+  var ok=chosen.c;if(ok)visScore++;else{visLives--;if(visLives<=0){setTimeout(function(){loseScreen('\uD83D\uDC94','Out of lives!','Review WCAG 2.2 focus and contrast rules and try again.',gameVisual);},400);return;}}
+  var res=document.getElementById('vres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'\u2705 ':'\u274C ')+chosen.w;document.getElementById('vbtns').style.display='flex';
 }
-function finishVis(){if(visScore>=4)winScreen('🏆',visScore===5?'Perfect audit!':'You passed!',visScore+'/5 correct. You can spot visual and keyboard WCAG 2.2 violations in real UI.',150,'visual',0,gameVisual);else loseScreen('🔍',visScore+'/5 — keep learning!','You need 4/5. Study WCAG 1.4.3, 2.1.1, 2.4.4 and 2.4.11.',gameVisual);}
+function finishVis(){if(visScore>=4)winScreen('\uD83C\uDFC6',visScore===5?'Perfect audit!':'You passed!',visScore+'/5 correct. You can spot visual and keyboard WCAG 2.2 violations in real UI.',150,'visual',0,gameVisual);else loseScreen('\uD83D\uDD0D',visScore+'/5 \u2014 keep learning!','You need 4/5. Study WCAG 1.4.3, 2.1.1, 2.4.4 and 2.4.11.',gameVisual);}
 
 // ══ GAME 2 — LOWEST CONTRAST ══
 var CONTRAST_ROUNDS=[
@@ -508,81 +540,81 @@ function gameContrast(){contIdx=0;contScore=0;contLives=3;var qs=shuffle(CONTRAS
 function renderCont(){
   var q=window._contQ[contIdx];var lh=livesHTML(contLives,3);var swHtml='';
   q.swatches.forEach(function(sw,i){swHtml+='<button class="csw" id="csw'+i+'" style="background:'+sw.bg+'" aria-label="'+sw.txt+'"><span class="csw-lbl" style="color:'+sw.fg+'">'+sw.txt+'</span></button>';});
-  document.getElementById('mbody').innerHTML='<p class="gi">Which swatch has the <strong style="color:#fff">lowest contrast ratio</strong>? The lowest ratio = the hardest to read visually.</p><div class="gr"><div class="pi">Round <span class="v">'+(contIdx+1)+'</span>/5 · Score: <span class="v">'+contScore+'</span></div><div class="lv">'+lh+'</div></div>'+progFill(contIdx,5)+'<div class="cswgrid">'+swHtml+'</div><div class="res" id="cres"></div><div class="br" id="cbtns" style="display:none">'+(contIdx<4?'<button class="btn p" id="cnxt">Next →</button>':'<button class="btn p" id="cfin">See result →</button>')+'</div>';
+  document.getElementById('mbody').innerHTML='<p class="gi">Which swatch has the <strong style="color:#fff">lowest contrast ratio</strong>? The lowest ratio = the hardest to read visually.</p><div class="gr"><div class="pi">Round <span class="v">'+(contIdx+1)+'</span>/5 \u00b7 Score: <span class="v">'+contScore+'</span></div><div class="lv">'+lh+'</div></div>'+progFill(contIdx,5)+'<div class="cswgrid">'+swHtml+'</div><div class="res" id="cres"></div><div class="br" id="cbtns" style="display:none">'+(contIdx<4?'<button class="btn p" id="cnxt">Next \u2192</button>':'<button class="btn p" id="cfin">See result \u2192</button>')+'</div>';
   q.swatches.forEach(function(sw,i){document.getElementById('csw'+i).addEventListener('click',function(){answerCont(i,sw,q);});});
   var nx=document.getElementById('cnxt');if(nx)nx.addEventListener('click',function(){contIdx++;renderCont();});
   var fn=document.getElementById('cfin');if(fn)fn.addEventListener('click',finishCont);
 }
 function answerCont(i,chosen,q){
   q.swatches.forEach(function(sw,j){var el=document.getElementById('csw'+j);if(el){if(sw.lowest)el.classList.add('right');else if(j===i)el.classList.add('wrong');el.style.cursor='default';el.style.pointerEvents='none';el.disabled=true;}});
-  var ok=chosen.lowest;if(ok)contScore++;else{contLives--;if(contLives<=0){setTimeout(function(){loseScreen('🎨','Out of lives!','WCAG 2.2 requires 4.5:1 for normal text. Train your eye for contrast.',gameContrast);},400);return;}}
+  var ok=chosen.lowest;if(ok)contScore++;else{contLives--;if(contLives<=0){setTimeout(function(){loseScreen('\uD83C\uDFA8','Out of lives!','WCAG 2.2 requires 4.5:1 for normal text. Train your eye for contrast.',gameContrast);},400);return;}}
   var lowestSw=q.swatches.filter(function(s){return s.lowest;})[0];
-  var res=document.getElementById('cres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'✅ Correct! ':'❌ Wrong. ')+'The lowest contrast was "'+lowestSw.txt+'" at '+lowestSw.ratio+'. WCAG 2.2 requires 4.5:1 for normal-weight text.';
+  var res=document.getElementById('cres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'\u2705 Correct! ':'\u274C Wrong. ')+'The lowest contrast was "'+lowestSw.txt+'" at '+lowestSw.ratio+'. WCAG 2.2 requires 4.5:1 for normal-weight text.';
   document.getElementById('cbtns').style.display='flex';
 }
-function finishCont(){if(contScore>=4)winScreen('🎨',contScore===5?'Contrast master!':'You passed!',contScore+'/5. Your eye for contrast will improve every design you touch.',120,'contrast',1,gameContrast);else loseScreen('🎨',contScore+'/5 — keep training!','You need 4/5. Use a contrast checker to build instinct quickly.',gameContrast);}
+function finishCont(){if(contScore>=4)winScreen('\uD83C\uDFA8',contScore===5?'Contrast master!':'You passed!',contScore+'/5. Your eye for contrast will improve every design you touch.',120,'contrast',1,gameContrast);else loseScreen('\uD83C\uDFA8',contScore+'/5 \u2014 keep training!','You need 4/5. Use a contrast checker to build instinct quickly.',gameContrast);}
 
-// ══ GAME 3 — RIGHT OR WRONG? (WCAG Scenarios — no SR assumptions) ══
+// ══ GAME 3 — RIGHT OR WRONG? ══
 var PLDATA=[
   {q:'A form has a date-of-birth input labelled "DOB". A user pauses, unsure what format to enter. What should have been provided?',
    opts:[
-     {t:'A visible format hint such as "DD / MM / YYYY" shown below the field',c:true,w:'WCAG 3.3.2 — labels or instructions must be provided where content requires a specific format. A visible hint removes guesswork and reduces errors, especially on forms with date or phone number fields.'},
+     {t:'A visible format hint such as "DD / MM / YYYY" shown below the field',c:true,w:'WCAG 3.3.2 \u2014 labels or instructions must be provided where content requires a specific format. A visible hint removes guesswork and reduces errors.'},
      {t:'The field should auto-detect and reformat whatever the user types',c:false,w:'Auto-reformatting can be confusing and cause errors. The WCAG requirement is a visible instruction before submission.'},
      {t:'A tooltip that appears on hover',c:false,w:'Tooltips are inaccessible to keyboard users who cannot hover. Visible persistent instructions are required.'},
-     {t:'The label "DOB" is sufficient — users know what it means',c:false,w:'Abbreviations like "DOB" are ambiguous and format requirements are not implied. WCAG 3.3.2 requires format instructions to be visible.'}
+     {t:'The label "DOB" is sufficient \u2014 users know what it means',c:false,w:'Abbreviations like "DOB" are ambiguous and format requirements are not implied. WCAG 3.3.2 requires format instructions to be visible.'}
    ]},
-  {q:'A button on a product page reads "Add". A keyboard user navigates to a page with 12 identical "Add" buttons — one per product. What is the problem?',
+  {q:'A button on a product page reads "Add". A keyboard user navigates to a page with 12 identical "Add" buttons \u2014 one per product. What is the problem?',
    opts:[
-     {t:'When tabbing through the page, every button is labelled "Add" with no product context — purpose cannot be determined',c:true,w:'WCAG 2.4.6 — each control\'s label must be meaningful when encountered in isolation (e.g. when tabbing). "Add — Running Shoes Pro X" is descriptive; plain "Add" across 12 identical buttons is not.'},
+     {t:'When tabbing through the page, every button is labelled "Add" with no product context \u2014 purpose cannot be determined',c:true,w:'WCAG 2.4.6 \u2014 each control\'s label must be meaningful when encountered in isolation. "Add \u2014 Running Shoes Pro X" is descriptive; plain "Add" across 12 identical buttons is not.'},
      {t:'Buttons should always contain icons as well as text',c:false,w:'Icons are optional. The issue is that the label gives no context about what is being added.'},
      {t:'There should only be one "Add" button visible at a time',c:false,w:'Limiting UI elements is not the WCAG requirement. The fix is making each label unique and descriptive.'},
-     {t:'The button text is too short — it needs to be at least 4 characters',c:false,w:'There is no character length requirement. The problem is lack of contextual meaning.'}
+     {t:'The button text is too short \u2014 it needs to be at least 4 characters',c:false,w:'There is no character length requirement. The problem is lack of contextual meaning.'}
    ]},
   {q:'A web page has a carousel that auto-advances every 4 seconds. A keyboard user wants to read slide 2 but it moves on. What does WCAG 2.2.2 require?',
    opts:[
-     {t:'A visible Pause or Stop button that keyboard users can activate',c:true,w:'WCAG 2.2.2 (Pause, Stop, Hide) — any content that moves automatically for more than 5 seconds must have a user-operable mechanism to pause or stop it. The control must be keyboard-accessible.'},
-     {t:'The carousel should advance more slowly — 8 seconds minimum',c:false,w:'Slowing the timing is not the WCAG fix. Users must be able to pause or stop the movement entirely.'},
+     {t:'A visible Pause or Stop button that keyboard users can activate',c:true,w:'WCAG 2.2.2 (Pause, Stop, Hide) \u2014 any content that moves automatically for more than 5 seconds must have a user-operable mechanism to pause or stop it.'},
+     {t:'The carousel should advance more slowly \u2014 8 seconds minimum',c:false,w:'Slowing the timing is not the WCAG fix. Users must be able to pause or stop the movement entirely.'},
      {t:'Auto-advancing carousels are prohibited under WCAG 2.2',c:false,w:'They are permitted if a pause/stop mechanism is provided.'},
      {t:'The user can press Escape to stop the carousel',c:false,w:'Escape is not a standard convention for pausing carousels. A clearly visible and labelled Pause button is required.'}
    ]},
   {q:'A page has 40 navigation links before the main content. What keyboard accessibility issue does this create and what is the fix?',
    opts:[
-     {t:'A keyboard user must Tab through all 40 links to reach the main content — a skip link at the top fixes this',c:true,w:'WCAG 2.4.1 (Bypass Blocks) — repetitive navigation blocks must be bypassable. A "Skip to main content" link as the first focusable element lets keyboard users jump directly to the content.'},
+     {t:'A keyboard user must Tab through all 40 links to reach the main content \u2014 a skip link at the top fixes this',c:true,w:'WCAG 2.4.1 (Bypass Blocks) \u2014 repetitive navigation blocks must be bypassable. A "Skip to main content" link as the first focusable element lets keyboard users jump directly to the content.'},
      {t:'Navigation links should be reduced to a maximum of 10',c:false,w:'There is no limit on navigation items. The fix is a skip link, not reducing links.'},
      {t:'The navigation should collapse by default and expand on focus',c:false,w:'Collapsing navigation may help visually but is not the WCAG 2.4.1 requirement. A skip link is the standard fix.'},
      {t:'Keyboard users should use Ctrl+F to find content instead',c:false,w:'Browser search is not a substitute for keyboard-accessible navigation structure.'}
    ]},
   {q:'A dialog box opens and displays an important warning. The warning disappears after 3 seconds automatically. What WCAG issue does this create?',
    opts:[
-     {t:'A keyboard user may not have enough time to read and act on the warning before it disappears',c:true,w:'WCAG 2.2.1 (Timing Adjustable) — if a time limit is set by the content, users must be able to turn it off, adjust it, or be warned before it expires. Auto-dismissing warnings that users cannot control are a WCAG failure.'},
-     {t:'Dialog boxes must always require a click to dismiss',c:false,w:'Requiring a click is one solution, but the WCAG requirement is that users have adequate time or control — not specifically a click.'},
+     {t:'A keyboard user may not have enough time to read and act on the warning before it disappears',c:true,w:'WCAG 2.2.1 (Timing Adjustable) \u2014 if a time limit is set by the content, users must be able to turn it off, adjust it, or be warned before it expires. Auto-dismissing warnings that users cannot control are a WCAG failure.'},
+     {t:'Dialog boxes must always require a click to dismiss',c:false,w:'Requiring a click is one solution, but the WCAG requirement is that users have adequate time or control \u2014 not specifically a click.'},
      {t:'The warning should appear in red to make it more urgent',c:false,w:'Colour alone cannot convey urgency (WCAG 1.4.1). And colour does not solve the timing problem.'},
-     {t:'A 5-second delay is sufficient for most users to read the message',c:false,w:'No fixed time is "sufficient" for all users, including those who read slowly or use magnification. WCAG 2.2.1 requires user control over timing.'}
+     {t:'A 5-second delay is sufficient for most users to read the message',c:false,w:'No fixed time is "sufficient" for all users. WCAG 2.2.1 requires user control over timing.'}
    ]},
   {q:'A link opens a 4MB PDF. The link text reads "Policy document". What should be added?',
    opts:[
-     {t:'The file format and size in the link text, e.g. "Policy document (PDF, 4MB)"',c:true,w:'WCAG 2.4.4 — link purpose must be clear from the link text. File format and size warn users about unexpected behaviour (a download) and help those on slow connections or data-limited plans make an informed decision.'},
+     {t:'The file format and size in the link text, e.g. "Policy document (PDF, 4MB)"',c:true,w:'WCAG 2.4.4 \u2014 link purpose must be clear from the link text. File format and size warn users about unexpected behaviour (a download) and help those on slow connections.'},
      {t:'A download icon next to the link',c:false,w:'Icons are not reliably understood universally and cannot substitute for text. The file type and size should be in the link text.'},
      {t:'The link should be replaced with an embedded PDF viewer',c:false,w:'An embedded viewer is one approach but not required. Informative link text with format and size is the WCAG 2.4.4 fix.'},
-     {t:'A tooltip showing the file size when the user hovers',c:false,w:'Tooltips require hover — keyboard users cannot access them. File type and size must be in the visible link text.'}
+     {t:'A tooltip showing the file size when the user hovers',c:false,w:'Tooltips require hover \u2014 keyboard users cannot access them. File type and size must be in the visible link text.'}
    ]},
   {q:'A modal opens when a user activates a "Settings" button. When the user presses Escape, nothing happens. What is wrong?',
    opts:[
-     {t:'WCAG 2.1.2 requires keyboard users to be able to close modals — Escape is the expected key',c:true,w:'WCAG 2.1.2 (No Keyboard Trap) — users must be able to exit any modal or overlay using standard keyboard interaction. Escape is the universally expected way to close dialogs. A visible Close button is also required.'},
+     {t:'WCAG 2.1.2 requires keyboard users to be able to close modals \u2014 Escape is the expected key',c:true,w:'WCAG 2.1.2 (No Keyboard Trap) \u2014 users must be able to exit any modal or overlay using standard keyboard interaction. Escape is the universally expected way to close dialogs. A visible Close button is also required.'},
      {t:'The modal should close automatically after 30 seconds',c:false,w:'Auto-closing creates a timing problem under WCAG 2.2.1. The fix is Escape key support and a visible Close button.'},
-     {t:'The Settings button should not open a modal — use a dropdown instead',c:false,w:'Modals are an acceptable pattern. The WCAG failure is the missing keyboard exit mechanism.'},
+     {t:'The Settings button should not open a modal \u2014 use a dropdown instead',c:false,w:'Modals are an acceptable pattern. The WCAG failure is the missing keyboard exit mechanism.'},
      {t:'The modal must have a visible border to be identifiable',c:false,w:'Visual styling is not the keyboard failure here. The critical issue is the missing keyboard exit.'}
    ]},
   {q:'A sign-up form has 6 fields. After submitting with 2 errors, the page reloads and shows an error summary at the top. The user has to scroll down to find which fields are wrong. What is missing?',
    opts:[
-     {t:'Keyboard focus should move to the error summary automatically so users land on it',c:true,w:'WCAG 3.3.1 — errors must be described in text. Moving focus to the error summary on submission failure ensures keyboard users immediately encounter the errors rather than having to hunt for them.'},
+     {t:'Keyboard focus should move to the error summary automatically so users land on it',c:true,w:'WCAG 3.3.1 \u2014 errors must be described in text. Moving focus to the error summary on submission failure ensures keyboard users immediately encounter the errors rather than having to hunt for them.'},
      {t:'Error messages should appear as browser alert dialogs',c:false,w:'Browser alerts interrupt the workflow and are generally inaccessible. Inline error summaries with focus management are the correct approach.'},
      {t:'The form should be split across multiple pages so fewer errors can occur',c:false,w:'Multi-step forms are a UX choice, not the WCAG fix. Focus management on the error summary is the requirement.'},
      {t:'A red banner at the bottom of the page is sufficient',c:false,w:'Position matters for keyboard users. An error summary at the bottom requires extensive navigation to reach. Focus must be moved to the summary after submission.'}
    ]},
-  {q:'A table on a data page has no visible column headers — just rows of numbers. A keyboard user navigates into the table. What is the primary visual problem?',
+  {q:'A table on a data page has no visible column headers \u2014 just rows of numbers. A keyboard user navigates into the table. What is the primary visual problem?',
    opts:[
-     {t:'Without column headers, users have no visual reference for what each column of data means',c:true,w:'WCAG 1.3.1 — data tables need <th> header cells. Without them, every column of numbers is visually ambiguous. Headers provide the context needed to understand and use the data correctly.'},
+     {t:'Without column headers, users have no visual reference for what each column of data means',c:true,w:'WCAG 1.3.1 \u2014 data tables need <th> header cells. Without them, every column of numbers is visually ambiguous. Headers provide the context needed to understand and use the data correctly.'},
      {t:'Tables should be replaced with charts for better readability',c:false,w:'Tables are the correct element for tabular data. The fix is adding visible column headers.'},
      {t:'The table needs alternating row colours to be readable',c:false,w:'Striping improves readability but is not the WCAG 1.3.1 requirement. Column headers are the structural necessity.'},
      {t:'The table font size is too small',c:false,w:'Font size is not the primary WCAG failure here. Missing column headers are the critical structural problem.'}
@@ -600,24 +632,24 @@ function gamePlain(){plIdx=0;plScore=0;plLives=3;var qs=shuffle(PLDATA).slice(0,
 function renderPL(){
   var q=window._plQ[plIdx];var lh=livesHTML(plLives,3);
   var opts='';q.opts.forEach(function(o,i){opts+='<button class="op" id="plo'+i+'"><span class="op-radio"></span><span class="op-text">'+o.t+'</span></button>';});
-  document.getElementById('mbody').innerHTML='<p class="gi">A real WCAG 2.2 scenario. Pick the correct answer. 4/5 to win.</p><div class="gr"><div class="pi">Q<span class="v">'+(plIdx+1)+'</span>/5 · Score: <span class="v">'+plScore+'</span></div><div class="lv">'+lh+'</div></div>'+progFill(plIdx,5)+'<div class="qq">'+q.q+'</div><div class="ops">'+opts+'</div><div class="res" id="plres"></div><div class="br" id="plbtns" style="display:none">'+(plIdx<4?'<button class="btn p" id="plnxt">Next →</button>':'<button class="btn p" id="plfin">See result →</button>')+'</div>';
+  document.getElementById('mbody').innerHTML='<p class="gi">A real WCAG 2.2 scenario. Pick the correct answer. 4/5 to win.</p><div class="gr"><div class="pi">Q<span class="v">'+(plIdx+1)+'</span>/5 \u00b7 Score: <span class="v">'+plScore+'</span></div><div class="lv">'+lh+'</div></div>'+progFill(plIdx,5)+'<div class="qq">'+q.q+'</div><div class="ops">'+opts+'</div><div class="res" id="plres"></div><div class="br" id="plbtns" style="display:none">'+(plIdx<4?'<button class="btn p" id="plnxt">Next \u2192</button>':'<button class="btn p" id="plfin">See result \u2192</button>')+'</div>';
   q.opts.forEach(function(o,i){document.getElementById('plo'+i).addEventListener('click',function(){answerPL(i,o);});});
   var nx=document.getElementById('plnxt');if(nx)nx.addEventListener('click',function(){plIdx++;renderPL();});
   var fn=document.getElementById('plfin');if(fn)fn.addEventListener('click',finishPL);
 }
 function answerPL(i,chosen){
   var q=window._plQ[plIdx];q.opts.forEach(function(o,j){var b=document.getElementById('plo'+j);if(b){if(o.c)b.classList.add('ok');else if(j===i)b.classList.add('no');b.disabled=true;}});
-  var ok=chosen.c;if(ok)plScore++;else{plLives--;if(plLives<=0){setTimeout(function(){loseScreen('💔','Out of lives!','Study WCAG 2.2 keyboard and visual scenarios and try again.',gamePlain);},400);return;}}
-  var res=document.getElementById('plres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'✅ ':'❌ ')+chosen.w;document.getElementById('plbtns').style.display='flex';
+  var ok=chosen.c;if(ok)plScore++;else{plLives--;if(plLives<=0){setTimeout(function(){loseScreen('\uD83D\uDC94','Out of lives!','Study WCAG 2.2 keyboard and visual scenarios and try again.',gamePlain);},400);return;}}
+  var res=document.getElementById('plres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'\u2705 ':'\u274C ')+chosen.w;document.getElementById('plbtns').style.display='flex';
 }
-function finishPL(){if(plScore>=4)winScreen('🏆',plScore===5?'Perfect!':'You passed!',plScore+'/5. You understand WCAG 2.2 in real-world keyboard and visual contexts.',100,'plain',2,gamePlain);else loseScreen('📝',plScore+'/5 — so close!','You need 4/5. Focus on WCAG 2.4.11, 2.1.1, 1.4.3 and 2.4.4.',gamePlain);}
+function finishPL(){if(plScore>=4)winScreen('\uD83C\uDFC6',plScore===5?'Perfect!':'You passed!',plScore+'/5. You understand WCAG 2.2 in real-world keyboard and visual contexts.',100,'plain',2,gamePlain);else loseScreen('\uD83D\uDCDD',plScore+'/5 \u2014 so close!','You need 4/5. Focus on WCAG 2.4.11, 2.1.1, 1.4.3 and 2.4.4.',gamePlain);}
 
 // ══ GAME 4 — FOCUS ══
 var KBDLEVELS=[
-  {instr:'Tab through the buttons. Find the <strong style="color:var(--pu)">★ target</strong>. The focus ring is visible — this is what accessible keyboard navigation looks like.',targetIdx:2,nof:false,els:['Home','About','Contact ★','Blog','Sign in'],hint:'WCAG 2.4.11 (Focus Appearance) — every keyboard-focusable element must have a visible focus indicator with sufficient contrast and size.'},
-  {instr:'The focus indicator has been <strong style="color:var(--re)">removed with outline:none</strong>. Tab to find the ★ target. Can you tell where focus is?',targetIdx:3,nof:true,els:['Dashboard','Reports','Settings','Delete ★','Help'],hint:'No visible focus = invisible keyboard navigation. This is the most common keyboard accessibility failure, and it affects every sighted keyboard user.'},
-  {instr:'Still <strong style="color:var(--re)">no focus ring</strong>. More buttons this time.',targetIdx:4,nof:true,els:['File','Edit','View','Insert','Format ★','Help'],hint:'WCAG 2.4.11 (new in WCAG 2.2) requires focus indicators to meet a minimum area and contrast threshold — not just exist in any form.'},
-  {instr:'Focus ring is back. But there is a <strong style="color:var(--or)">focus trap</strong>. Find and click ★ — then try to Tab away.',targetIdx:1,nof:false,isTrap:true,els:['Options','★ Trapped','Cancel'],hint:'WCAG 2.1.2 (No Keyboard Trap) — users must always be able to move focus away from any component using Tab, Shift+Tab, or Escape.'},
+  {instr:'Tab through the buttons. Find the <strong style="color:var(--pu)">\u2605 target</strong>. The focus ring is visible \u2014 this is what accessible keyboard navigation looks like.',targetIdx:2,nof:false,els:['Home','About','Contact \u2605','Blog','Sign in'],hint:'WCAG 2.4.11 (Focus Appearance) \u2014 every keyboard-focusable element must have a visible focus indicator with sufficient contrast and size.'},
+  {instr:'The focus indicator has been <strong style="color:var(--re)">removed with outline:none</strong>. Tab to find the \u2605 target. Can you tell where focus is?',targetIdx:3,nof:true,els:['Dashboard','Reports','Settings','Delete \u2605','Help'],hint:'No visible focus = invisible keyboard navigation. This is the most common keyboard accessibility failure, and it affects every sighted keyboard user.'},
+  {instr:'Still <strong style="color:var(--re)">no focus ring</strong>. More buttons this time.',targetIdx:4,nof:true,els:['File','Edit','View','Insert','Format \u2605','Help'],hint:'WCAG 2.4.11 (new in WCAG 2.2) requires focus indicators to meet a minimum area and contrast threshold \u2014 not just exist in any form.'},
+  {instr:'Focus ring is back. But there is a <strong style="color:var(--or)">focus trap</strong>. Find and click \u2605 \u2014 then try to Tab away.',targetIdx:1,nof:false,isTrap:true,els:['Options','\u2605 Trapped','Cancel'],hint:'WCAG 2.1.2 (No Keyboard Trap) \u2014 users must always be able to move focus away from any component using Tab, Shift+Tab, or Escape.'},
 ];
 var kbdLv,kbdFound;
 function gameKbd(){kbdLv=0;kbdFound=0;setModal('Focus','Keyboard','#2ee8b8','');renderKbd();}
@@ -626,36 +658,39 @@ function renderKbd(){
   lv.els.forEach(function(label,i){var isT=i===lv.targetIdx;var cols=3;var row=Math.floor(i/cols);var col=i%cols;var top=20+row*72;var left=20+col*155;btns+='<button class="fb'+(lv.nof?' nof':'')+(isT?' tgt':'')+'" style="top:'+top+'px;left:'+left+'px" id="kbtn'+i+'">'+label+'</button>';});
   document.getElementById('mbody').innerHTML='<p class="gi">'+lv.instr+'</p>'
     +'<div class="kbd-legend"><span class="kbd-key"><kbd>Tab</kbd> Move forward</span><span class="kbd-key"><kbd>Shift+Tab</kbd> Move back</span><span class="kbd-key"><kbd>Enter</kbd> Activate</span><span class="kbd-key"><kbd>Space</kbd> Activate / check</span></div>'
-    +'<div class="gr"><div class="pi">Level <span class="v">'+(kbdLv+1)+'</span>/4 · Found: <span class="v">'+kbdFound+'</span>/4</div></div>'+progFill(kbdLv,4)+'<div class="fhint">💡 '+lv.hint+'</div><div class="fa" style="height:'+(lv.els.length>3?170:120)+'px">'+btns+'</div><div class="res" id="kres"></div>';
+    +'<div class="gr"><div class="pi">Level <span class="v">'+(kbdLv+1)+'</span>/4 \u00b7 Found: <span class="v">'+kbdFound+'</span>/4</div></div>'+progFill(kbdLv,4)+'<div class="fhint">\uD83D\uDCA1 '+lv.hint+'</div><div class="fa" style="height:'+(lv.els.length>3?170:120)+'px">'+btns+'</div><div class="res" id="kres"></div>';
   lv.els.forEach(function(label,i){var isT=i===lv.targetIdx;var btn=document.getElementById('kbtn'+i);if(btn)btn.addEventListener('click',function(){clickKbd(isT,lv.isTrap);});});
 }
 function clickKbd(isTarget,isTrap){
   var res=document.getElementById('kres');
   if(isTarget){
     kbdFound++;
-    if(res){res.className='res show pass';res.textContent='✅ Found it! '+(kbdLv===0?'Easy with a visible focus ring. Now try without one.':kbdLv===3?'In a real focus trap, Tab would loop you back — no way out. WCAG 2.1.2 forbids this.':'Without a focus ring, imagine doing this across an entire website every day.');}
-    setTimeout(function(){kbdLv++;if(kbdLv>=KBDLEVELS.length){setTimeout(function(){winScreen('⌨️','Focus champion!','You\'ve experienced keyboard focus issues firsthand. WCAG 2.4.7, 2.4.11 and 2.1.2 exist because of exactly this.',110,'kbd',3,gameKbd);},300);}else{renderKbd();}},900);
+    if(res){res.className='res show pass';res.textContent='\u2705 Found it! '+(kbdLv===0?'Easy with a visible focus ring. Now try without one.':kbdLv===3?'In a real focus trap, Tab would loop you back \u2014 no way out. WCAG 2.1.2 forbids this.':'Without a focus ring, imagine doing this across an entire website every day.');}
+    setTimeout(function(){kbdLv++;if(kbdLv>=KBDLEVELS.length){setTimeout(function(){winScreen('\u2328\uFE0F','Focus champion!',"You've experienced keyboard focus issues firsthand. WCAG 2.4.7, 2.4.11 and 2.1.2 exist because of exactly this.",110,'kbd',3,gameKbd);},300);}else{renderKbd();}},900);
   } else {
-    if(res){res.className='res show fail';res.textContent='❌ Not the target.'+(KBDLEVELS[kbdLv].nof?' Without a focus ring, it is nearly impossible to track where focus is — this is what users experience on inaccessible sites.':' Keep looking.');}
+    if(res){res.className='res show fail';res.textContent='\u274C Not the target.'+(KBDLEVELS[kbdLv].nof?' Without a focus ring, it is nearly impossible to track where focus is \u2014 this is what users experience on inaccessible sites.':' Keep looking.');}
   }
 }
 
 // ══ GAME 5 — CAPTION THIS ══
 var CAPPOOL=[
-  {sc:'A presenter speaks at a podium. Data charts on slides. Audience applauds.',ctx:'Corporate keynote — no transcript.',opts:[{t:'[Applause] Presenter: "And that brings our Q3 results to…"',c:true,w:'Identifies speaker, captures sound effects, and begins the speech content. Complete and accurate.'},{t:'Person speaking at a conference.',c:false,w:'Describes visuals, not audio. Captions transcribe what is heard, not what is seen.'},{t:'[Music]',c:false,w:'There is no music in this scene. Inaccurate captions are worse than no captions.'}]},
-  {sc:'Two people argue. One walks out and slams a door.',ctx:'Drama scene, no dialogue.',opts:[{t:'[Door slams]',c:true,w:'Precise and specific. Communicates the key sound that carries emotional meaning.'},{t:'[Loud noise]',c:false,w:'Too vague — "loud noise" could mean anything.'},{t:'Man leaves room angrily.',c:false,w:'Describes the visual action. Captions should describe the audio, not what is visible on screen.'}]},
-  {sc:'Chef: "Now add a pinch of salt and stir gently."',ctx:'Online cooking tutorial.',opts:[{t:'Now add a pinch of salt and stir gently.',c:true,w:'Verbatim transcription. This is exactly what captions are for — complete accuracy.'},{t:'Adding salt to the dish.',c:false,w:'Summarising removes "gently" which is an instruction that affects the outcome.'},{t:'"Now add a pinch of salt…" [continues]',c:false,w:'Truncating captions loses information. Every word of instruction matters.'}]},
-  {sc:'Background music plays throughout a 2-minute explainer. No speech.',ctx:'Product promotional video.',opts:[{t:'[Upbeat background music]',c:true,w:'Describes the audio mood and type. Gives viewers context for the emotional tone of the video.'},{t:'[Music playing]',c:false,w:'Generic — the mood and character of the music adds important tonal context.'},{t:'',c:false,w:'Empty captions leave viewers uncertain whether captions are working at all.'}]},
-  {sc:'A phone rings three times, then voicemail picks up with a beep.',ctx:'Scene in a thriller film.',opts:[{t:'[Phone ringing] [Voicemail beeps]',c:true,w:'Both sound events are captured. The voicemail beep changes the meaning of the scene — the call was not answered.'},{t:'[Ringing]',c:false,w:'Missing the voicemail beep changes the narrative meaning entirely.'},{t:'Phone rings.',c:false,w:'Present-tense description is not standard caption format. Use square brackets for non-speech audio.'}]},
-  {sc:'A warning alarm sounds urgently, followed by: "Please evacuate via the nearest exit."',ctx:'Workplace safety training video.',opts:[{t:'[Alarm sounding] Announcement: "Please evacuate via the nearest exit."',c:true,w:'Both the alarm and the speech are captured. In a safety context, the alarm itself is a critical signal.'},{t:'"Please evacuate via the nearest exit."',c:false,w:'Missing the alarm — which is itself a key safety signal that must be communicated in the captions.'},{t:'[Loud alarm]',c:false,w:'The spoken evacuation instruction is completely missing.'}]},
-  {sc:'Two characters whisper a secret phrase across a crowded room.',ctx:'Period drama, captions enabled.',opts:[{t:'[Whispers] "Meet me at midnight."',c:true,w:'The [whispers] tag communicates how the line is delivered — essential for tone and context.'},{t:'"Meet me at midnight."',c:false,w:'Missing the whisper description loses the emotional register and secrecy of the scene.'},{t:'(inaudible)',c:false,w:'The dialogue is audible to hearing viewers — it must be transcribed. (inaudible) is only for genuinely unclear audio.'}]},
-  {sc:'A podcast episode: two hosts debate a topic with background music throughout.',ctx:'Audio embedded in a website article.',opts:[{t:'A full transcript or synchronised captions must be provided for the audio',c:true,w:'WCAG 1.2.1 (Audio-only) — pre-recorded audio-only content requires a text alternative. A transcript below the player or synchronised captions are both valid approaches.'},{t:'A volume slider on the player is sufficient',c:false,w:'Volume control is not a text alternative. WCAG 1.2.1 requires an equivalent text version of all audio content.'},{t:'Podcast content is exempt from WCAG because it is entertainment',c:false,w:'No content type is exempt. All audio published on websites must meet WCAG requirements.'}]},
+  {sc:'A presenter speaks at a podium. Data charts on slides. Audience applauds.',ctx:'Corporate keynote \u2014 no transcript.',opts:[{t:'[Applause] Presenter: "And that brings our Q3 results to\u2026"',c:true,w:'Identifies speaker, captures sound effects, and begins the speech content. Complete and accurate.'},{t:'Person speaking at a conference.',c:false,w:'Describes visuals, not audio. Captions transcribe what is heard, not what is seen.'},{t:'[Music]',c:false,w:'There is no music in this scene. Inaccurate captions are worse than no captions.'}]},
+  {sc:'Two people argue. One walks out and slams a door.',ctx:'Drama scene, no dialogue.',opts:[{t:'[Door slams]',c:true,w:'Precise and specific. Communicates the key sound that carries emotional meaning.'},{t:'[Loud noise]',c:false,w:'Too vague \u2014 "loud noise" could mean anything.'},{t:'Man leaves room angrily.',c:false,w:'Describes the visual action. Captions should describe the audio, not what is visible on screen.'}]},
+  {sc:'Chef: "Now add a pinch of salt and stir gently."',ctx:'Online cooking tutorial.',opts:[{t:'Now add a pinch of salt and stir gently.',c:true,w:'Verbatim transcription. This is exactly what captions are for \u2014 complete accuracy.'},{t:'Adding salt to the dish.',c:false,w:'Summarising removes "gently" which is an instruction that affects the outcome.'},{t:'"Now add a pinch of salt\u2026" [continues]',c:false,w:'Truncating captions loses information. Every word of instruction matters.'}]},
+  {sc:'Background music plays throughout a 2-minute explainer. No speech.',ctx:'Product promotional video.',opts:[{t:'[Upbeat background music]',c:true,w:'Describes the audio mood and type. Gives viewers context for the emotional tone of the video.'},{t:'[Music playing]',c:false,w:'Generic \u2014 the mood and character of the music adds important tonal context.'},{t:'',c:false,w:'Empty captions leave viewers uncertain whether captions are working at all.'}]},
+  {sc:'A phone rings three times, then voicemail picks up with a beep.',ctx:'Scene in a thriller film.',opts:[{t:'[Phone ringing] [Voicemail beeps]',c:true,w:'Both sound events are captured. The voicemail beep changes the meaning of the scene \u2014 the call was not answered.'},{t:'[Ringing]',c:false,w:'Missing the voicemail beep changes the narrative meaning entirely.'},{t:'Phone rings.',c:false,w:'Present-tense description is not standard caption format. Use square brackets for non-speech audio.'}]},
+  {sc:'A warning alarm sounds urgently, followed by: "Please evacuate via the nearest exit."',ctx:'Workplace safety training video.',opts:[{t:'[Alarm sounding] Announcement: "Please evacuate via the nearest exit."',c:true,w:'Both the alarm and the speech are captured. In a safety context, the alarm itself is a critical signal.'},{t:'"Please evacuate via the nearest exit."',c:false,w:'Missing the alarm \u2014 which is itself a key safety signal that must be communicated in the captions.'},{t:'[Loud alarm]',c:false,w:'The spoken evacuation instruction is completely missing.'}]},
+  {sc:'Two characters whisper a secret phrase across a crowded room.',ctx:'Period drama, captions enabled.',opts:[{t:'[Whispers] "Meet me at midnight."',c:true,w:'The [whispers] tag communicates how the line is delivered \u2014 essential for tone and context.'},{t:'"Meet me at midnight."',c:false,w:'Missing the whisper description loses the emotional register and secrecy of the scene.'},{t:'(inaudible)',c:false,w:'The dialogue is audible to hearing viewers \u2014 it must be transcribed. (inaudible) is only for genuinely unclear audio.'}]},
+  {sc:'A podcast episode: two hosts debate a topic with background music throughout.',ctx:'Audio embedded in a website article.',opts:[{t:'A full transcript or synchronised captions must be provided for the audio',c:true,w:'WCAG 1.2.1 (Audio-only) \u2014 pre-recorded audio-only content requires a text alternative. A transcript below the player or synchronised captions are both valid approaches.'},{t:'A volume slider on the player is sufficient',c:false,w:'Volume control is not a text alternative. WCAG 1.2.1 requires an equivalent text version of all audio content.'},{t:'Podcast content is exempt from WCAG because it is entertainment',c:false,w:'No content type is exempt. All audio published on websites must meet WCAG requirements.'}]},
 ];
 var capIdx,capScore;
 function gameCaption(){capIdx=0;capScore=0;var qs=shuffle(CAPPOOL).slice(0,5);window._capQ=qs;setModal('Caption This','Captions','#ff6b6b','');renderCap();}
 function renderCap(){
-  var q=window._capQ[capIdx];var opts='';q.opts.forEach(function(o,i){opts+='<button class="op" id="capo'+i+'"><span class="op-radio"></span><span class="op-text">'+(o.t||'(empty captions)')+'</span></button>';});
-  document.getElementById('mbody').innerHTML='<p class="gi">Choose the most accurate and accessible caption for this scenario. 4/5 to win.</p><div class="gr"><div class="pi">Scene <span class="v">'+(capIdx+1)+'</span>/5 · Score: <span class="v">'+capScore+'</span></div></div>'+progFill(capIdx,5)+'<div class="fv" style="flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:1.25rem 1.35rem;aspect-ratio:auto;min-height:140px"><div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.85rem"><span style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:rgba(155,127,255,.85)">▶ Video scenario</span></div><div style="display:flex;gap:.65rem;align-items:baseline;margin-bottom:.6rem;width:100%"><span style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);min-width:58px;flex-shrink:0">Scene</span><span style="font-size:.93rem;color:#fff;line-height:1.65">'+q.sc+'</span></div><div style="display:flex;gap:.65rem;align-items:baseline;width:100%"><span style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);min-width:58px;flex-shrink:0">Context</span><span style="font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.6">'+q.ctx+'</span></div></div><div class="ops">'+opts+'</div><div class="res" id="capres"></div><div class="br" id="capbtns" style="display:none">'+(capIdx<4?'<button class="btn p" id="capnxt">Next →</button>':'<button class="btn p" id="capfin">See result →</button>')+'</div>';
+  var q=window._capQ[capIdx];var opts='';
+  q.opts.forEach(function(o,i){opts+='<button class="op" id="capo'+i+'"><span class="op-radio"></span><span class="op-text">'+(o.t||'(empty captions)')+'</span></button>';});
+  document.getElementById('mbody').innerHTML='<p class="gi">Choose the most accurate and accessible caption for this scenario. 4/5 to win.</p><div class="gr"><div class="pi">Scene <span class="v">'+(capIdx+1)+'</span>/5 \u00b7 Score: <span class="v">'+capScore+'</span></div></div>'+progFill(capIdx,5)
+    +'<div class="fv" style="flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:1.25rem 1.35rem;min-height:140px"><div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.85rem"><span style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:rgba(155,127,255,.85)">\u25B6 Video scenario</span></div><div style="display:flex;gap:.65rem;align-items:baseline;margin-bottom:.6rem;width:100%"><span style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);min-width:58px;flex-shrink:0">Scene</span><span style="font-size:.93rem;color:#fff;line-height:1.65">'+q.sc+'</span></div><div style="display:flex;gap:.65rem;align-items:baseline;width:100%"><span style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);min-width:58px;flex-shrink:0">Context</span><span style="font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.6">'+q.ctx+'</span></div></div>'
+    +'<div class="ops">'+opts+'</div><div class="res" id="capres"></div><div class="br" id="capbtns" style="display:none">'+(capIdx<4?'<button class="btn p" id="capnxt">Next \u2192</button>':'<button class="btn p" id="capfin">See result \u2192</button>')+'</div>';
   q.opts.forEach(function(o,i){document.getElementById('capo'+i).addEventListener('click',function(){answerCap(i,o);});});
   var nx=document.getElementById('capnxt');if(nx)nx.addEventListener('click',function(){capIdx++;renderCap();});
   var fn=document.getElementById('capfin');if(fn)fn.addEventListener('click',finishCap);
@@ -663,19 +698,19 @@ function renderCap(){
 function answerCap(i,chosen){
   var q=window._capQ[capIdx];q.opts.forEach(function(o,j){var b=document.getElementById('capo'+j);if(b){if(o.c)b.classList.add('ok');else if(j===i)b.classList.add('no');b.disabled=true;}});
   var ok=chosen.c;if(ok)capScore++;
-  var res=document.getElementById('capres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'✅ ':'❌ ')+chosen.w;document.getElementById('capbtns').style.display='flex';
+  var res=document.getElementById('capres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'\u2705 ':'\u274C ')+chosen.w;document.getElementById('capbtns').style.display='flex';
 }
-function finishCap(){if(capScore>=4)winScreen('🎬',capScore===5?'Perfect captions!':'You passed!',capScore+'/5. Good captions convey audio meaning accurately — not just transcribe speech.',100,'caption',4,gameCaption);else loseScreen('📹',capScore+'/5 — nearly there!','Captions describe audio events, not visuals. Tone, sound effects and speaker identification all matter.',gameCaption);}
+function finishCap(){if(capScore>=4)winScreen('\uD83C\uDFAC',capScore===5?'Perfect captions!':'You passed!',capScore+'/5. Good captions convey audio meaning accurately \u2014 not just transcribe speech.',100,'caption',4,gameCaption);else loseScreen('\uD83D\uDCF9',capScore+'/5 \u2014 nearly there!','Captions describe audio events, not visuals. Tone, sound effects and speaker identification all matter.',gameCaption);}
 
-// ══ GAME 6 — GOOD STRUCTURE? ══
+// ══ GAME 6 — HEADING ══
 var HPOOL=[
-  {q:'Which page outline has a correct heading hierarchy?',opts:[{ol:[['H1','Acme Corp'],['H3','Our services'],['H4','Web design'],['H2','Contact us']],c:false,w:'H3 before H2 — skips a level. Heading hierarchy must be sequential with no gaps.'},{ol:[['H1','Acme Corp'],['H2','Our services'],['H3','Web design'],['H2','Contact us']],c:true,w:'Correct. H1→H2→H3→H2. One H1, no skipped levels, structure matches the content.'},{ol:[['H1','Acme Corp'],['H1','Our services'],['H2','Web design'],['H3','Contact us']],c:false,w:'Two H1s on the same page. Every page should have exactly one H1 — the primary page title.'}]},
-  {q:'A blog post page. Which outline is correct?',opts:[{ol:[['H1','10 Tips for Better Sleep'],['H2','Tip 1: Go to bed earlier'],['H3','Why timing matters'],['H2','Tip 2: Limit screens'],['H4','Blue light science']],c:false,w:'H4 under H2 skips H3. Every level must be used in sequence — no jumping from H2 to H4.'},{ol:[['H1','10 Tips for Better Sleep'],['H2','Tip 1: Go to bed earlier'],['H3','Why timing matters'],['H2','Tip 2: Limit screens'],['H3','Blue light science']],c:true,w:'Correct. H1→H2→H3→H2→H3. Every sub-topic is properly nested under its parent section.'},{ol:[['H2','10 Tips for Better Sleep'],['H3','Tip 1: Go to bed earlier'],['H4','Why timing matters'],['H3','Tip 2: Limit screens']],c:false,w:'The page starts at H2 — there is no H1. Every page needs exactly one H1 as the primary title.'}]},
-  {q:'An e-commerce product page. Which is correct?',opts:[{ol:[['H1','Running Shoes Pro X'],['H2','Product details'],['H3','Size guide'],['H2','Customer reviews'],['H3','Top review']],c:true,w:'Correct. H1 product title, H2 sections, H3 sub-sections. Clean, logical, no skipped levels.'},{ol:[['H1','Running Shoes Pro X'],['H3','Product details'],['H4','Size guide'],['H2','Customer reviews']],c:false,w:'H3 directly after H1 — skips H2. The first section heading must be H2.'},{ol:[['H1','Running Shoes Pro X'],['H1','Product details'],['H2','Size guide'],['H2','Customer reviews']],c:false,w:'Two H1s. "Product details" is a section — it should be H2, not a second page title.'}]},
-  {q:'A government information page. Which is correct?',opts:[{ol:[['H1','Apply for a passport'],['H2','Who can apply'],['H2','What you need'],['H3','Accepted documents'],['H2','How to apply'],['H3','Online'],['H3','By post']],c:true,w:'Correct. H3s are properly nested under their H2 parent sections. Clean, logical structure.'},{ol:[['H1','Apply for a passport'],['H2','Who can apply'],['H4','Age requirements'],['H2','What you need'],['H3','Accepted documents']],c:false,w:'H4 under H2 skips H3. Level 3 must be used before level 4.'},{ol:[['H1','Apply for a passport'],['H1','Who can apply'],['H2','What you need'],['H2','How to apply']],c:false,w:'Two H1s. "Who can apply" is a section — it must be H2.'}]},
-  {q:'A help centre article. Which is correct?',opts:[{ol:[['H1','How to reset your password'],['H2','Before you start'],['H2','Step-by-step guide'],['H3','On mobile'],['H3','On desktop'],['H2','Still having trouble?']],c:true,w:'Correct. H1→H2→H3. The step-by-step sub-topics are properly nested under the guide section.'},{ol:[['H1','How to reset your password'],['H2','Before you start'],['H4','Requirements'],['H2','Step-by-step guide'],['H2','On mobile']],c:false,w:'H4 under H2 skips H3. Also "On mobile" should be H3 nested under the guide, not a peer H2 section.'},{ol:[['H1','How to reset your password'],['H1','Before you start'],['H2','Step-by-step guide'],['H2','Still having trouble?']],c:false,w:'"Before you start" is a section of the article — it should be H2, not a second H1.'}]},
-  {q:'A SaaS landing page. Which heading structure is correct?',opts:[{ol:[['H1','Ship faster with less friction'],['H2','Features'],['H3','Automated testing'],['H3','One-click deploy'],['H2','Pricing'],['H2','Testimonials']],c:true,w:'Correct. One H1, H2 for page sections, H3 for items within sections. Logical and well-structured.'},{ol:[['H1','Ship faster with less friction'],['H2','Features'],['H2','Automated testing'],['H2','One-click deploy'],['H3','Pricing']],c:false,w:'"Automated testing" and "One-click deploy" are sub-items of Features — they should be H3. "Pricing" is a section — it should be H2.'},{ol:[['H2','Ship faster with less friction'],['H3','Features'],['H4','Automated testing'],['H2','Pricing']],c:false,w:'No H1. The hero headline "Ship faster…" is the page primary heading and must be H1.'}]},
-  {q:'A multi-step checkout process, currently on step 2. Which is correct?',opts:[{ol:[['H1','Checkout'],['H2','Step 2: Shipping details'],['H3','Delivery address'],['H3','Delivery method'],['H2','Order summary']],c:true,w:'Correct. H1 for the overall flow, H2 for the current step and summary panel, H3 for sub-sections within them.'},{ol:[['H1','Checkout'],['H1','Step 2: Shipping details'],['H2','Delivery address'],['H2','Order summary']],c:false,w:'"Step 2: Shipping details" is a sub-section of Checkout — it should be H2, not a second H1.'},{ol:[['H2','Checkout'],['H3','Step 2: Shipping details'],['H4','Delivery address']],c:false,w:'No H1. "Checkout" is the page title and must be H1. Everything flows from there.'}]},
+  {q:'Which page outline has a correct heading hierarchy?',opts:[{ol:[['H1','Acme Corp'],['H3','Our services'],['H4','Web design'],['H2','Contact us']],c:false,w:'H3 before H2 \u2014 skips a level. Heading hierarchy must be sequential with no gaps.'},{ol:[['H1','Acme Corp'],['H2','Our services'],['H3','Web design'],['H2','Contact us']],c:true,w:'Correct. H1\u2192H2\u2192H3\u2192H2. One H1, no skipped levels, structure matches the content.'},{ol:[['H1','Acme Corp'],['H1','Our services'],['H2','Web design'],['H3','Contact us']],c:false,w:'Two H1s on the same page. Every page should have exactly one H1 \u2014 the primary page title.'}]},
+  {q:'A blog post page. Which outline is correct?',opts:[{ol:[['H1','10 Tips for Better Sleep'],['H2','Tip 1: Go to bed earlier'],['H3','Why timing matters'],['H2','Tip 2: Limit screens'],['H4','Blue light science']],c:false,w:'H4 under H2 skips H3. Every level must be used in sequence \u2014 no jumping from H2 to H4.'},{ol:[['H1','10 Tips for Better Sleep'],['H2','Tip 1: Go to bed earlier'],['H3','Why timing matters'],['H2','Tip 2: Limit screens'],['H3','Blue light science']],c:true,w:'Correct. H1\u2192H2\u2192H3\u2192H2\u2192H3. Every sub-topic is properly nested under its parent section.'},{ol:[['H2','10 Tips for Better Sleep'],['H3','Tip 1: Go to bed earlier'],['H4','Why timing matters'],['H3','Tip 2: Limit screens']],c:false,w:'The page starts at H2 \u2014 there is no H1. Every page needs exactly one H1 as the primary title.'}]},
+  {q:'An e-commerce product page. Which is correct?',opts:[{ol:[['H1','Running Shoes Pro X'],['H2','Product details'],['H3','Size guide'],['H2','Customer reviews'],['H3','Top review']],c:true,w:'Correct. H1 product title, H2 sections, H3 sub-sections. Clean, logical, no skipped levels.'},{ol:[['H1','Running Shoes Pro X'],['H3','Product details'],['H4','Size guide'],['H2','Customer reviews']],c:false,w:'H3 directly after H1 \u2014 skips H2. The first section heading must be H2.'},{ol:[['H1','Running Shoes Pro X'],['H1','Product details'],['H2','Size guide'],['H2','Customer reviews']],c:false,w:'Two H1s. "Product details" is a section \u2014 it should be H2, not a second page title.'}]},
+  {q:'A government information page. Which is correct?',opts:[{ol:[['H1','Apply for a passport'],['H2','Who can apply'],['H2','What you need'],['H3','Accepted documents'],['H2','How to apply'],['H3','Online'],['H3','By post']],c:true,w:'Correct. H3s are properly nested under their H2 parent sections. Clean, logical structure.'},{ol:[['H1','Apply for a passport'],['H2','Who can apply'],['H4','Age requirements'],['H2','What you need'],['H3','Accepted documents']],c:false,w:'H4 under H2 skips H3. Level 3 must be used before level 4.'},{ol:[['H1','Apply for a passport'],['H1','Who can apply'],['H2','What you need'],['H2','How to apply']],c:false,w:'Two H1s. "Who can apply" is a section \u2014 it must be H2.'}]},
+  {q:'A help centre article. Which is correct?',opts:[{ol:[['H1','How to reset your password'],['H2','Before you start'],['H2','Step-by-step guide'],['H3','On mobile'],['H3','On desktop'],['H2','Still having trouble?']],c:true,w:'Correct. H1\u2192H2\u2192H3. The step-by-step sub-topics are properly nested under the guide section.'},{ol:[['H1','How to reset your password'],['H2','Before you start'],['H4','Requirements'],['H2','Step-by-step guide'],['H2','On mobile']],c:false,w:'H4 under H2 skips H3. Also "On mobile" should be H3 nested under the guide, not a peer H2 section.'},{ol:[['H1','How to reset your password'],['H1','Before you start'],['H2','Step-by-step guide'],['H2','Still having trouble?']],c:false,w:'"Before you start" is a section of the article \u2014 it should be H2, not a second H1.'}]},
+  {q:'A SaaS landing page. Which heading structure is correct?',opts:[{ol:[['H1','Ship faster with less friction'],['H2','Features'],['H3','Automated testing'],['H3','One-click deploy'],['H2','Pricing'],['H2','Testimonials']],c:true,w:'Correct. One H1, H2 for page sections, H3 for items within sections. Logical and well-structured.'},{ol:[['H1','Ship faster with less friction'],['H2','Features'],['H2','Automated testing'],['H2','One-click deploy'],['H3','Pricing']],c:false,w:'"Automated testing" and "One-click deploy" are sub-items of Features \u2014 they should be H3. "Pricing" is a section \u2014 it should be H2.'},{ol:[['H2','Ship faster with less friction'],['H3','Features'],['H4','Automated testing'],['H2','Pricing']],c:false,w:'No H1. The hero headline "Ship faster\u2026" is the page primary heading and must be H1.'}]},
+  {q:'A multi-step checkout process, currently on step 2. Which is correct?',opts:[{ol:[['H1','Checkout'],['H2','Step 2: Shipping details'],['H3','Delivery address'],['H3','Delivery method'],['H2','Order summary']],c:true,w:'Correct. H1 for the overall flow, H2 for the current step and summary panel, H3 for sub-sections within them.'},{ol:[['H1','Checkout'],['H1','Step 2: Shipping details'],['H2','Delivery address'],['H2','Order summary']],c:false,w:'"Step 2: Shipping details" is a sub-section of Checkout \u2014 it should be H2, not a second H1.'},{ol:[['H2','Checkout'],['H3','Step 2: Shipping details'],['H4','Delivery address']],c:false,w:'No H1. "Checkout" is the page title and must be H1. Everything flows from there.'}]},
 ];
 var hIdx,hScore;
 var hColors={H1:'h1c',H2:'h2c',H3:'h3c',H4:'h4c'};
@@ -683,7 +718,7 @@ function gameHeading(){hIdx=0;hScore=0;var qs=shuffle(HPOOL).slice(0,5);window._
 function renderH(){
   var q=window._hQ[hIdx];var opts='';
   q.opts.forEach(function(o,i){var rows='';o.ol.forEach(function(row){rows+='<div><span class="'+hColors[row[0]]+'">'+row[0]+'</span> <span style="color:#fff">'+row[1]+'</span></div>';});opts+='<button class="ho" id="ho'+i+'" tabindex="0"><span class="op-radio" style="flex-shrink:0;margin-top:.3rem"></span><div class="hl" style="flex:1">'+rows+'</div></button>';});
-  document.getElementById('mbody').innerHTML='<p class="gi">'+q.q+' Click the outline with the correct WCAG 2.2 heading structure.</p><div class="gr"><div class="pi">Round <span class="v">'+(hIdx+1)+'</span>/5 · Score: <span class="v">'+hScore+'</span></div></div>'+progFill(hIdx,5)+opts+'<div class="res" id="hres"></div><div class="br" id="hbtns" style="display:none">'+(hIdx<4?'<button class="btn p" id="hnxt">Next →</button>':'<button class="btn p" id="hfin">See result →</button>')+'</div>';
+  document.getElementById('mbody').innerHTML='<p class="gi">'+q.q+' Click the outline with the correct WCAG 2.2 heading structure.</p><div class="gr"><div class="pi">Round <span class="v">'+(hIdx+1)+'</span>/5 \u00b7 Score: <span class="v">'+hScore+'</span></div></div>'+progFill(hIdx,5)+opts+'<div class="res" id="hres"></div><div class="br" id="hbtns" style="display:none">'+(hIdx<4?'<button class="btn p" id="hnxt">Next \u2192</button>':'<button class="btn p" id="hfin">See result \u2192</button>')+'</div>';
   q.opts.forEach(function(o,i){var el=document.getElementById('ho'+i);if(el)el.addEventListener('click',function(){answerH(i,o);});});
   var nx=document.getElementById('hnxt');if(nx)nx.addEventListener('click',function(){hIdx++;renderH();});
   var fn=document.getElementById('hfin');if(fn)fn.addEventListener('click',finishH);
@@ -691,26 +726,27 @@ function renderH(){
 function answerH(i,chosen){
   var q=window._hQ[hIdx];q.opts.forEach(function(o,j){var el=document.getElementById('ho'+j);if(el){el.classList.add('jd');if(o.c)el.classList.add('ok');else if(j===i)el.classList.add('no');el.style.cursor='default';el.disabled=true;}});
   var ok=chosen.c;if(ok)hScore++;
-  var res=document.getElementById('hres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'✅ ':'❌ ')+chosen.w;document.getElementById('hbtns').style.display='flex';
+  var res=document.getElementById('hres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'\u2705 ':'\u274C ')+chosen.w;document.getElementById('hbtns').style.display='flex';
 }
-function finishH(){if(hScore>=4)winScreen('📋',hScore===5?'Structure ace!':'You passed!',hScore+'/5. One H1, no skipped levels, structure matches content meaning.',120,'heading',5,gameHeading);else loseScreen('📝',hScore+'/5 — keep learning!','H1→H2→H3 without skipping. One H1 per page. Structure should mirror content meaning.',gameHeading);}
+function finishH(){if(hScore>=4)winScreen('\uD83D\uDCCB',hScore===5?'Structure ace!':'You passed!',hScore+'/5. One H1, no skipped levels, structure matches content meaning.',120,'heading',5,gameHeading);else loseScreen('\uD83D\uDCDD',hScore+'/5 \u2014 keep learning!','H1\u2192H2\u2192H3 without skipping. One H1 per page. Structure should mirror content meaning.',gameHeading);}
 
 // ══ GAME 7 — ALT TEXT BATTLE ══
 var ALTPOOL=[
-  {emoji:'📊',label:'Bar chart: monthly website traffic. Jan 2,000 → Dec 8,500.',ctx:'Inline in an annual report.',opts:[{t:'Chart',c:false,w:'Too vague — no data or purpose is conveyed to a user who cannot see the image.'},{t:'Bar chart of monthly website traffic, peaking at 8,500 in December.',c:true,w:'WCAG 1.1.1 — communicates what it is, what data it shows, and the key insight. A user who cannot view the image gets the same information.'},{t:'A colourful bar chart with bars of different heights.',c:false,w:'Describes visual appearance, not content meaning. Alt text must convey the data, not describe the colours.'}]},
-  {emoji:'🌸',label:'"Bloom" brand logo with a flower icon.',ctx:'Header — link to homepage.',opts:[{t:'Logo',c:false,w:'Too vague. Does not identify the brand or describe where the link goes.'},{t:'Bloom',c:false,w:'Names the brand but does not describe the link destination — where does this take the user?'},{t:'Bloom — return to homepage',c:true,w:'WCAG 2.4.4 — for linked images, the accessible name must describe both the brand identity and the link destination.'}]},
-  {emoji:'🧑‍💻',label:'Person typing at a laptop, looking focused.',ctx:'Decorative background image on a "Work with us" page.',opts:[{t:'Person working on laptop',c:false,w:'Decorative images should use alt="" so users who rely on text equivalents are not given irrelevant information.'},{t:'',c:true,w:'Correct. Empty alt (alt="") tells the browser to skip this image entirely — it adds no information to the page and should not be described.'},{t:'Stock photo of employee at work',c:false,w:'This adds noise for no purpose. Decorative images should always have empty alt text.'}]},
-  {emoji:'⚠️',label:'Red warning triangle icon next to the text "Your session will expire in 5 minutes."',ctx:'Inline status banner.',opts:[{t:'Warning',c:true,w:'The adjacent text already explains the detail. A brief alt confirms the icon role without duplicating the sentence that follows it.'},{t:'Red triangle warning icon indicating session expiry',c:false,w:'Over-describes — the complete message is already in the adjacent visible text. Repeating it adds no value.'},{t:'',c:false,w:'An empty alt would remove the warning icon\'s semantic role. The icon is functional — it signals urgency — and deserves a brief alt.'}]},
-  {emoji:'🗺️',label:'A map showing the location of the London office.',ctx:'Contact us page.',opts:[{t:'Map',c:false,w:'Too vague — which location? What is the user supposed to do with this information?'},{t:'Map showing our London office at 123 Example Street, EC1A 1BB',c:true,w:'WCAG 1.1.1 — the map contains essential location data. If the image cannot be seen, the address must still be conveyed via alt text or nearby text.'},{t:'',c:false,w:'This image contains important information (the office location). Empty alt would hide that information from users who cannot see the map.'}]},
-  {emoji:'📸',label:'Black and white portrait of Maya Rodriguez, VP of Engineering.',ctx:'Team page, next to her biography.',opts:[{t:'Photo',c:false,w:'Too vague — who is in the photo? Context matters.'},{t:'Maya Rodriguez',c:true,w:'The person\'s name is the meaningful content. Her title and biography are already visible in the adjacent text — the alt does not need to repeat them.'},{t:'Black and white headshot of a professional woman smiling confidently',c:false,w:'Describes visual appearance and makes assumptions. The meaningful content is the person\'s identity — their name.'}]},
-  {emoji:'⭐',label:'Five gold star icons showing a product rating.',ctx:'Product page. Adjacent text reads "4.8 out of 5 (312 reviews)".',opts:[{t:'Five stars',c:false,w:'Redundant — the rating is already fully conveyed in the adjacent visible text.'},{t:'',c:true,w:'Correct. The visible text "4.8 out of 5" already communicates everything. The star images are purely decorative in this context and should be skipped.'},{t:'Rating: 4.8 out of 5 stars',c:false,w:'This exact information is already in the adjacent text. Repeating it means users who rely on text equivalents encounter it twice.'}]},
-  {emoji:'🖱️',label:'Screenshot of a cursor hovering over a Save button.',ctx:'How-to guide. The preceding sentence reads: "Click the Save button to confirm."',opts:[{t:'Cursor clicking Save',c:false,w:'The surrounding text already says exactly this. Repeating it in alt text means users encounter the instruction twice.'},{t:'',c:true,w:'The step text already says "Click the Save button". The screenshot is illustrative and decorative in this context — empty alt prevents duplication.'},{t:'Screenshot illustrating how to find and click the Save button in the application',c:false,w:'The preceding text already describes this action completely. Verbose alt text for a decorative screenshot adds no value.'}]},
+  {emoji:'\uD83D\uDCCA',label:'Bar chart: monthly website traffic. Jan 2,000 \u2192 Dec 8,500.',ctx:'Inline in an annual report.',opts:[{t:'Chart',c:false,w:'Too vague \u2014 no data or purpose is conveyed to a user who cannot see the image.'},{t:'Bar chart of monthly website traffic, peaking at 8,500 in December.',c:true,w:'WCAG 1.1.1 \u2014 communicates what it is, what data it shows, and the key insight. A user who cannot view the image gets the same information.'},{t:'A colourful bar chart with bars of different heights.',c:false,w:'Describes visual appearance, not content meaning. Alt text must convey the data, not describe the colours.'}]},
+  {emoji:'\uD83C\uDF38',label:'"Bloom" brand logo with a flower icon.',ctx:'Header \u2014 link to homepage.',opts:[{t:'Logo',c:false,w:'Too vague. Does not identify the brand or describe where the link goes.'},{t:'Bloom',c:false,w:'Names the brand but does not describe the link destination \u2014 where does this take the user?'},{t:'Bloom \u2014 return to homepage',c:true,w:'WCAG 2.4.4 \u2014 for linked images, the accessible name must describe both the brand identity and the link destination.'}]},
+  {emoji:'\uD83E\uDDD1\u200D\uD83D\uDCBB',label:'Person typing at a laptop, looking focused.',ctx:'Decorative background image on a "Work with us" page.',opts:[{t:'Person working on laptop',c:false,w:'Decorative images should use alt="" so users who rely on text equivalents are not given irrelevant information.'},{t:'',c:true,w:'Correct. Empty alt (alt="") tells the browser to skip this image entirely \u2014 it adds no information to the page and should not be described.'},{t:'Stock photo of employee at work',c:false,w:'This adds noise for no purpose. Decorative images should always have empty alt text.'}]},
+  {emoji:'\u26A0\uFE0F',label:'Red warning triangle icon next to the text "Your session will expire in 5 minutes."',ctx:'Inline status banner.',opts:[{t:'Warning',c:true,w:'The adjacent text already explains the detail. A brief alt confirms the icon role without duplicating the sentence that follows it.'},{t:'Red triangle warning icon indicating session expiry',c:false,w:'Over-describes \u2014 the complete message is already in the adjacent visible text. Repeating it adds no value.'},{t:'',c:false,w:'An empty alt would remove the warning icon\'s semantic role. The icon is functional \u2014 it signals urgency \u2014 and deserves a brief alt.'}]},
+  {emoji:'\uD83D\uDDFA\uFE0F',label:'A map showing the location of the London office.',ctx:'Contact us page.',opts:[{t:'Map',c:false,w:'Too vague \u2014 which location? What is the user supposed to do with this information?'},{t:'Map showing our London office at 123 Example Street, EC1A 1BB',c:true,w:'WCAG 1.1.1 \u2014 the map contains essential location data. If the image cannot be seen, the address must still be conveyed via alt text or nearby text.'},{t:'',c:false,w:'This image contains important information (the office location). Empty alt would hide that information from users who cannot see the map.'}]},
+  {emoji:'\uD83D\uDCF8',label:'Black and white portrait of Maya Rodriguez, VP of Engineering.',ctx:'Team page, next to her biography.',opts:[{t:'Photo',c:false,w:'Too vague \u2014 who is in the photo? Context matters.'},{t:'Maya Rodriguez',c:true,w:"The person's name is the meaningful content. Her title and biography are already visible in the adjacent text \u2014 the alt does not need to repeat them."},{t:'Black and white headshot of a professional woman smiling confidently',c:false,w:"Describes visual appearance and makes assumptions. The meaningful content is the person's identity \u2014 their name."}]},
+  {emoji:'\u2B50',label:'Five gold star icons showing a product rating.',ctx:'Product page. Adjacent text reads "4.8 out of 5 (312 reviews)".',opts:[{t:'Five stars',c:false,w:'Redundant \u2014 the rating is already fully conveyed in the adjacent visible text.'},{t:'',c:true,w:'Correct. The visible text "4.8 out of 5" already communicates everything. The star images are purely decorative in this context and should be skipped.'},{t:'Rating: 4.8 out of 5 stars',c:false,w:'This exact information is already in the adjacent text. Repeating it means users who rely on text equivalents encounter it twice.'}]},
+  {emoji:'\uD83D\uDDB1\uFE0F',label:'Screenshot of a cursor hovering over a Save button.',ctx:'How-to guide. The preceding sentence reads: "Click the Save button to confirm."',opts:[{t:'Cursor clicking Save',c:false,w:'The surrounding text already says exactly this. Repeating it in alt text means users encounter the instruction twice.'},{t:'',c:true,w:'The step text already says "Click the Save button". The screenshot is illustrative and decorative in this context \u2014 empty alt prevents duplication.'},{t:'Screenshot illustrating how to find and click the Save button in the application',c:false,w:'The preceding text already describes this action completely. Verbose alt text for a decorative screenshot adds no value.'}]},
 ];
 var altIdx,altScore;
 function gameAlt(){altIdx=0;altScore=0;var qs=shuffle(ALTPOOL).slice(0,5);window._altQ=qs;setModal('Alt Text Battle','Alt Text','#9b7fff','');renderAlt();}
 function renderAlt(){
-  var q=window._altQ[altIdx];var opts='';q.opts.forEach(function(o,i){opts+='<button class="op" id="alto'+i+'"><span class="op-radio"></span><span class="op-text">'+(o.t===''?'alt="" (empty — image is skipped)':o.t)+'</span></button>';});
-  document.getElementById('mbody').innerHTML='<p class="gi">Pick the best alt text for this image given its context. 4/5 to win.</p><div class="gr"><div class="pi">Image <span class="v">'+(altIdx+1)+'</span>/5 · Score: <span class="v">'+altScore+'</span></div></div>'+progFill(altIdx,5)+'<div class="ab"><span class="ae" aria-hidden="true">'+q.emoji+'</span><div class="ad"><strong style="color:#fff">Image:</strong> '+q.label+'</div><div class="ac2"><strong style="color:#fff">Context:</strong> '+q.ctx+'</div></div><div class="ops">'+opts+'</div><div class="res" id="altres"></div><div class="br" id="altbtns" style="display:none">'+(altIdx<4?'<button class="btn p" id="altnxt">Next →</button>':'<button class="btn p" id="altfin">See result →</button>')+'</div>';
+  var q=window._altQ[altIdx];var opts='';
+  q.opts.forEach(function(o,i){opts+='<button class="op" id="alto'+i+'"><span class="op-radio"></span><span class="op-text">'+(o.t===''?'alt="" (empty \u2014 image is skipped)':o.t)+'</span></button>';});
+  document.getElementById('mbody').innerHTML='<p class="gi">Pick the best alt text for this image given its context. 4/5 to win.</p><div class="gr"><div class="pi">Image <span class="v">'+(altIdx+1)+'</span>/5 \u00b7 Score: <span class="v">'+altScore+'</span></div></div>'+progFill(altIdx,5)+'<div class="ab"><span class="ae" aria-hidden="true">'+q.emoji+'</span><div class="ad"><strong style="color:#fff">Image:</strong> '+q.label+'</div><div class="ac2"><strong style="color:#fff">Context:</strong> '+q.ctx+'</div></div><div class="ops">'+opts+'</div><div class="res" id="altres"></div><div class="br" id="altbtns" style="display:none">'+(altIdx<4?'<button class="btn p" id="altnxt">Next \u2192</button>':'<button class="btn p" id="altfin">See result \u2192</button>')+'</div>';
   q.opts.forEach(function(o,i){document.getElementById('alto'+i).addEventListener('click',function(){answerAlt(i,o);});});
   var nx=document.getElementById('altnxt');if(nx)nx.addEventListener('click',function(){altIdx++;renderAlt();});
   var fn=document.getElementById('altfin');if(fn)fn.addEventListener('click',finishAlt);
@@ -718,41 +754,39 @@ function renderAlt(){
 function answerAlt(i,chosen){
   var q=window._altQ[altIdx];q.opts.forEach(function(o,j){var b=document.getElementById('alto'+j);if(b){if(o.c)b.classList.add('ok');else if(j===i)b.classList.add('no');b.disabled=true;}});
   var ok=chosen.c;if(ok)altScore++;
-  var res=document.getElementById('altres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'✅ ':'❌ ')+chosen.w;document.getElementById('altbtns').style.display='flex';
+  var res=document.getElementById('altres');res.className='res show '+(ok?'pass':'fail');res.setAttribute('role','status');res.setAttribute('aria-live','polite');res.textContent=(ok?'\u2705 ':'\u274C ')+chosen.w;document.getElementById('altbtns').style.display='flex';
 }
-function finishAlt(){if(altScore>=4)winScreen('🖼️',altScore===5?'Alt text ace!':'You passed!',altScore+'/5. Describe meaning not appearance. Context always determines the right alt text.',100,'alt',6,gameAlt);else loseScreen('📸',altScore+'/5 — not quite!','You need 4/5. The context of an image determines what alt text should say.',gameAlt);}
+function finishAlt(){if(altScore>=4)winScreen('\uD83D\uDDBC\uFE0F',altScore===5?'Alt text ace!':'You passed!',altScore+'/5. Describe meaning not appearance. Context always determines the right alt text.',100,'alt',6,gameAlt);else loseScreen('\uD83D\uDCF8',altScore+'/5 \u2014 not quite!','You need 4/5. The context of an image determines what alt text should say.',gameAlt);}
+
+// ══ SESSION RESTORE + INIT ══
+try{
+  var _saved=sessionStorage.getItem('a11y_player');
+  if(_saved){
+    currentPlayer=_saved;session={xp:0,streak:0,done:0,completedIds:new Set()};
+    updateBannerAndSB();
+    document.getElementById('start-zone').style.display='none';
+    document.getElementById('player-zone').style.display='block';
+    document.querySelectorAll('.gc').forEach(function(c){c.classList.remove('locked');});
+    var pnd=document.getElementById('player-name-display');if(pnd)pnd.textContent=_saved;
+  }
+}catch(e){}
 
 var GAMES={visual:gameVisual,contrast:gameContrast,plain:gamePlain,kbd:gameKbd,caption:gameCaption,heading:gameHeading,alt:gameAlt};
 fetchLB();
+connectRealtime();
 
-// Expose functions called from HTML onclick attributes
-window.showNameEntry = showNameEntry;
-window.submitName = submitName;
-window.closeGame = closeGame;
-window.openGame = openGame;
-window.resetLB = resetLB;
-window.clickKbd = clickKbd;
-window.finishVis = finishVis;
-window.finishCont = finishCont;
-window.finishPL = finishPL;
-window.finishCap = finishCap;
-window.finishH = finishH;
-window.finishAlt = finishAlt;
-window.answerVis = answerVis;
-window.answerCont = answerCont;
-window.answerPL = answerPL;
-window.answerCap = answerCap;
-window.answerH = answerH;
-window.answerAlt = answerAlt;
-// Game functions (used in winScreen/loseScreen fn.toString() callbacks)
-window.gameVisual = gameVisual;
-window.gameContrast = gameContrast;
-window.gamePlain = gamePlain;
-window.gameKbd = gameKbd;
-window.gameCaption = gameCaption;
-window.gameHeading = gameHeading;
-window.gameAlt = gameAlt;
-window.fetchLB = fetchLB;
+// Window exports
+window.showNameEntry=showNameEntry;window.submitName=submitName;window.closeGame=closeGame;
+window.openGame=openGame;window.clickKbd=clickKbd;
+window.finishVis=finishVis;window.finishCont=finishCont;window.finishPL=finishPL;
+window.finishCap=finishCap;window.finishH=finishH;window.finishAlt=finishAlt;
+window.answerVis=answerVis;window.answerCont=answerCont;window.answerPL=answerPL;
+window.answerCap=answerCap;window.answerH=answerH;window.answerAlt=answerAlt;
+window.gameVisual=gameVisual;window.gameContrast=gameContrast;window.gamePlain=gamePlain;
+window.gameKbd=gameKbd;window.gameCaption=gameCaption;window.gameHeading=gameHeading;
+window.gameAlt=gameAlt;window.fetchLB=fetchLB;window.connectRealtime=connectRealtime;
+window.moveFocusToModal=moveFocusToModal;window.getFocusable=getFocusable;
+
 }); // end DOMContentLoaded
 </script>
 </body>
