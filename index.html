@@ -287,10 +287,10 @@ function renderLB(data){
     rows+='<tr'+(isMe?' class="me"':'')+'>'+
       '<td class="rank">'+(MEDALS[i]||'#'+(i+1))+'</td>'+
       '<td style="font-weight:500;color:#fff">'+e.name+(isMe?' <span style="color:var(--ac);font-size:.7rem">(you)</span>':'')+' </td>'+
-      '<td class="score">'+e.xp+' XP</td>'+
+      '<td class="score">'+e.xp+'</td>'+
       '<td style="color:var(--mu);font-size:.85rem;text-align:center">'+e.done+'</td></tr>';
   });
-  lbc.innerHTML='<table class="lbtable"><thead><tr><th></th><th>Player</th><th>XP</th><th>Done</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  lbc.innerHTML='<table class="lbtable" aria-label="Top 10 A11y Champions leaderboard"><caption class="sr-only">Top 10 A11y Champions leaderboard</caption><thead><tr><th scope="col"></th><th scope="col">Player</th><th scope="col">XP</th><th scope="col">Game</th></tr></thead><tbody>'+rows+'</tbody></table>';
 }
 
 function submitName(gameId){
