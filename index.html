@@ -61,7 +61,7 @@ h1 em{font-style:normal;color:var(--ac)}
 .gc.done .ck{display:flex}.gc.done{border-color:rgba(46,232,184,.5)}
 .mw{position:fixed;inset:0;background:rgba(11,11,14,.95);backdrop-filter:blur(10px);z-index:300;display:none;align-items:flex-end;justify-content:center;padding:0}
 .mw.open{display:flex}
-.mo{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);width:100%;max-width:740px;height:90vh;max-height:90vh;max-height:90vh;max-height:90vh;display:flex;flex-direction:column;overflow:hidden}
+.mo{background:var(--sur);border:2px solid var(--bd2);border-radius:var(--rl);width:100%;max-width:740px;height:90vh;max-height:90vh;display:flex;flex-direction:column;overflow:hidden}
 .mh{padding:1.1rem 1.5rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-bottom:2px solid var(--bd2);flex-shrink:0}
 .mt{font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-.01em}
 .mtag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem;border-radius:100px;margin-top:.35rem;display:inline-block;border-width:2px;border-style:solid}
@@ -160,7 +160,7 @@ footer{text-align:center;padding:3.5rem 2rem;color:var(--mu);font-size:.85rem;bo
 footer a{color:var(--ac);text-decoration:none;font-weight:500}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--sur)}::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
 @media(min-width:601px){.mw{align-items:center;padding:1.5rem}}
-@media(max-width:600px){h1{font-size:3rem}.hstats{gap:2rem}.grid{grid-template-columns:1fr}.mb{padding:1rem 1.1rem 6rem}.mh{padding:1.1rem 1.25rem 1rem}.mo{border-radius:0;height:100vh;max-height:100vh;width:100%;max-width:100%;position:fixed;top:0;left:0;right:0;bottom:0}}
+@media(max-width:600px){h1{font-size:3rem}.hstats{gap:2rem}.grid{grid-template-columns:1fr}.mb{padding:1rem 1.1rem 6rem}.mh{padding:.9rem 1.1rem .8rem}.mc{width:34px;height:34px;font-size:1rem}.mo{border-radius:0;height:100vh;max-height:100vh;width:100%;max-width:100%;position:fixed;top:0;left:0;right:0;bottom:0}.lbtable th:nth-child(1){width:28px}.lbtable th:nth-child(3){width:38px}.lbtable th:nth-child(4){width:38px}.lbtable td{font-size:.8rem;padding:.5rem .35rem}.lbtable th{font-size:.65rem;padding:.45rem .35rem}}
 .lb-subtitle{font-size:.78rem;color:var(--mu);font-weight:400;display:block;margin-top:.5rem}
 .lbtable th:nth-child(1){width:40px}.lbtable th:nth-child(2){width:auto}.lbtable th:nth-child(3){width:70px}.lbtable th:nth-child(4){width:80px}
 </style>
@@ -288,7 +288,7 @@ function renderLB(data){
       '<td class="rank">'+(MEDALS[i]||'#'+(i+1))+'</td>'+
       '<td style="font-weight:500;color:#fff">'+e.name+(isMe?' <span style="color:var(--ac);font-size:.7rem">(you)</span>':'')+' </td>'+
       '<td class="score">'+e.xp+'</td>'+
-      '<td style="color:var(--mu);font-size:.85rem;text-align:center">'+e.done+'</td></tr>';
+      '<td style="color:var(--mu);font-size:.85rem">'+e.done+'</td></tr>';
   });
   lbc.innerHTML='<table class="lbtable" aria-label="Top 10 A11y Champions leaderboard"><caption class="sr-only">Top 10 A11y Champions leaderboard</caption><thead><tr><th scope="col"></th><th scope="col">Player</th><th scope="col">XP</th><th scope="col">Game</th></tr></thead><tbody>'+rows+'</tbody></table>';
 }
@@ -388,7 +388,7 @@ function showNameEntry(gameId){
   try{sessionStorage.removeItem('a11y_player');}catch(e){}
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
-  setModal("Who's playing?",'' ,'#d4f54e',
+  setModal("Who's playing?",''    ,'#d4f54e',
     '<div class="name-screen"><h2>'+(currentPlayer?'Switch player':'Enter your name')+'</h2>'
     +'<p>'+(currentPlayer?'Current player <strong style="color:#fff">'+currentPlayer+'</strong> has '+session.xp+' XP. Score saved to leaderboard.':"Your name appears on the shared leaderboard. XP tracks as you play.")+'</p>'
     +'<input class="name-inp" id="nameinp" type="text" placeholder="Your name..." maxlength="24" autocomplete="off">'
@@ -413,7 +413,6 @@ function winScreen(medal,title,sub,xp,id,idx,fn){
 }
 function loseScreen(medal,title,sub,fn){
   if(session.streak>0){session.streak=Math.max(0,session.streak-1);updateBannerAndSB();}
-  var fnName=fn.name||'';
   document.getElementById('mbody').innerHTML='<div class="end"><span class="em">'+medal+'</span><div class="et">'+title+'</div><div class="es">'+sub+'</div><div class="br" style="justify-content:center"><button class="btn p" id="_retry">Try again</button><button class="btn" onclick="closeGame()">Back</button></div></div>';
   var retryBtn=document.getElementById('_retry');
   if(retryBtn)retryBtn.addEventListener('click',function(){fn();});
@@ -794,7 +793,7 @@ window.gameKbd=gameKbd;window.gameCaption=gameCaption;window.gameHeading=gameHea
 window.gameAlt=gameAlt;window.fetchLB=fetchLB;window.connectRealtime=connectRealtime;
 window.moveFocusToModal=moveFocusToModal;window.getFocusable=getFocusable;
 
-.lbtable th:nth-child(1){width:28px}.lbtable th:nth-child(3){width:38px}.lbtable th:nth-child(4){width:38px}.lbtable td{font-size:.8rem;padding:.5rem .35rem}.lbtable th{font-size:.65rem;padding:.45rem .35rem}}); // end DOMContentLoaded
+}); // end DOMContentLoaded
 </script>
 </body>
 </html>
